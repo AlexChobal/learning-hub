@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charge of Physics — Освітній Хаб</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563eb',
+                            dark: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .selection-blue::selection {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+        /* Hide scrollbars for side banners */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 selection-blue">
+
+    <!-- VISEGRAD BANNER -->
+    <div id="visegrad-banner" class="bg-[#1a1c23] text-white py-4 px-6 mx-auto max-w-7xl w-full flex flex-col sm:flex-row items-center justify-between gap-4 rounded-b-2xl mb-12 shadow-xl border-x border-b border-slate-800">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center flex-shrink-0 bg-slate-800">
+                <span class="text-lg">🌏</span>
+            </div>
+            <div class="text-xs uppercase tracking-wider">
+                <div class="font-extrabold text-blue-400 uppercase tracking-widest text-[10px] sm:text-xs">ЗА ПІДТРИМКИ INTERNATIONAL VISEGRAD FUND (VISEGRAD+)</div>
+                <div class="opacity-70 italic font-mono text-[9px] sm:text-[10px] mt-0.5">The Positive Charge of Physics Transfer by Non-Formal V4–Ukraine Learning</div>
+            </div>
+        </div>
+        <a href="https://www.visegradfund.org/" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl text-sm font-semibold transition-all shadow-lg hover:shadow-blue-500/20 whitespace-nowrap">
+            Дізнатися більше
+        </a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="max-w-7xl mx-auto px-6 mb-20">
+        <div class="bg-slate-50 rounded-3xl p-8 md:p-14 flex flex-col md:flex-row items-center gap-12 border border-slate-200/60 overflow-hidden relative">
+            <div class="flex-1 space-y-6 z-10">
+                <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200/50 text-blue-600 px-3 py-1.5 rounded-full text-xs font-bold leading-none tracking-tight">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                    </span>
+                    Освітній простір
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none animate-fade-in">
+                    Хаб Charge of Physics
+                </h1>
+                <p class="text-lg text-slate-500 max-w-xl leading-relaxed">
+                    Центральна платформа для учнів та вчителів з доступом до фізичних турнірів, матеріалів неформального навчання та сучасних методик викладання.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#pathway" class="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-7 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:scale-[1.02]">
+                        <i data-lucide="compass" class="w-5 h-5"></i> Дослідити можливості
+                    </a>
+                    <a href="#events" class="inline-flex items-center justify-center gap-2 bg-white text-slate-700 border border-slate-200 px-7 py-3 rounded-xl font-bold hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm hover:scale-[1.02]">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Події та можливості
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1 w-full max-w-md md:max-w-none">
+                <div class="aspect-[4/3] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" alt="Physics" class="w-full h-full object-cover opacity-85">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-950/50 to-transparent"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/20 blur-3xl rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATHWAY SECTION (Оберіть свій шлях) -->
+    <section id="pathway" class="max-w-7xl mx-auto px-6 mb-24 scroll-mt-6">
+        <div class="mb-10 text-left">
+            <div class="flex items-center gap-3 mb-3 font-black text-3xl uppercase tracking-tighter text-slate-900">
+                <i data-lucide="compass" class="w-8 h-8 text-blue-600"></i>
+                <h2>Оберіть свій шлях у світі фізики</h2>
+            </div>
+            <p class="text-slate-500 text-base max-w-2xl leading-relaxed">
+                Досліджуйте можливості розвитку у світі фізики з нашими провідними програмами, турнірами та інтерактивними лекціями.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- card 1 -->
+            <div class="bg-white border border-slate-100 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:shadow-md hover:border-slate-200/80 transition-all border-b-4 border-b-blue-600/20">
+                <div class="flex-grow space-y-4">
+                    <div class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-2">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900 tracking-tight">Náboj Physics</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Міжнародне змагання з фізики для команд старшокласників. Змагання зосереджено на креативності, логічному мисленні та гнучкому командному вирішенні складних наукових завдань.</p>
+                    <ul class="space-y-3 mt-6">
+                        <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                            <span class="font-medium">Правила успішної участі та формат</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                            <span class="font-medium">Приклади та розбори реальних задач</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-600">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                            <span class="font-medium">Рекомендації для ефективної підготовки</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://physics.naboj.org/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full mt-10 py-3.5 px-6 border border-slate-200 rounded-xl text-sm font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-colors">
+                    Детальніше про Náboj
+                </a>
+            </div>
+
+            <!-- card 2 -->
+            <div class="bg-white border border-slate-100 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:shadow-md hover:border-slate-200/80 transition-all border-b-4 border-b-blue-600/20">
+                <div class="flex-grow space-y-4">
+                    <div class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-2">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-slate-900 tracking-tight">Fyziklání</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Унікальний досвід занурення у фізику на міжнародному рівні. Ознайомтеся з враженнями наших учасників від минулих поїздок та надихайтеся на нові взаємні наукові відкриття.</p>
+                    <div class="flex gap-3 mt-6 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800" alt="Students" class="w-24 h-24 bg-slate-100 rounded-2xl object-cover border border-slate-150 cursor-pointer hover:scale-105 transition-transform" onclick="openGallery(0)">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" alt="Laboratory" class="w-24 h-24 bg-slate-100 rounded-2xl object-cover border border-slate-150 cursor-pointer hover:scale-105 transition-transform" onclick="openGallery(1)">
+                        <div class="w-24 h-24 bg-slate-50 border border-dashed border-slate-200 rounded-2xl flex flex-col items-center justify-center text-[10px] text-slate-400 font-bold tracking-tight gap-1 hover:bg-slate-100/50 cursor-pointer transition-colors" onclick="openGallery(2)">
+                            <i data-lucide="image" class="w-4 h-4"></i>
+                            <span>+ Галерея</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://fyziklani.cz/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full mt-10 py-3.5 px-6 border border-slate-200 rounded-xl text-sm font-bold text-slate-705 hover:bg-slate-50 hover:border-slate-300 transition-colors">
+                    Дослідити Fyziklání
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LECTURES SECTION -->
+    <section id="lectures" class="max-w-7xl mx-auto px-6 mb-24 scroll-mt-6">
+        <div class="mb-10 text-left">
+            <div class="flex items-center gap-3 mb-3 font-black text-3xl uppercase tracking-tighter text-slate-900">
+                <i data-lucide="video" class="w-8 h-8 text-blue-600"></i>
+                <h2>Онлайн-лекції</h2>
+            </div>
+            <p class="text-slate-500 text-base max-w-2xl leading-relaxed">Надихаючий та пізнавальний контент для поглиблення знань як учнів, так і педагогів.</p>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="flex gap-8 border-b border-slate-150 mb-10 overflow-x-auto whitespace-nowrap">
+            <button onclick="switchTab('students')" id="tab-students" class="pb-4 text-sm font-black transition-all relative text-blue-600 border-b-2 border-blue-600 cursor-pointer">
+                Для учнів
+            </button>
+            <button onclick="switchTab('teachers')" id="tab-teachers" class="pb-4 text-sm font-black transition-all relative text-slate-400 hover:text-slate-600 cursor-pointer">
+                Для вчителів
+            </button>
+        </div>
+
+        <!-- Pre-rendered grids for absolute robustness and preventing Lucide binding loss -->
+        <div id="lectures-students-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-200">
+            <!-- Video 1 -->
+            <div class="space-y-4 cursor-pointer group" onclick="playMockVideo('Основи механіки', 'Ярослав Коваль', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="aspect-video bg-slate-900 rounded-2xl relative overflow-hidden transition-transform group-hover:scale-[1.02] shadow-md">
+                    <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=500" alt="Video cover" class="w-full h-full object-cover opacity-50">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-slate-950/90 rounded-full flex items-center justify-center text-white shadow-2xl transition-all group-hover:bg-blue-600 group-hover:scale-110">
+                            <i data-lucide="play" fill="currentColor" class="translate-x-0.5 w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors text-lg tracking-tight">Основи кінематики та класичної механіки</h4>
+                    <p class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">Лектор: проф. Ярослав Коваль</p>
+                </div>
+            </div>
+            <!-- Video 2 -->
+            <div class="space-y-4 cursor-pointer group" onclick="playMockVideo('Термодинаміка на практиці', 'Олена Петренко', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="aspect-video bg-slate-900 rounded-2xl relative overflow-hidden transition-transform group-hover:scale-[1.02] shadow-md">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=500" alt="Video cover" class="w-full h-full object-cover opacity-50">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-slate-950/90 rounded-full flex items-center justify-center text-white shadow-2xl transition-all group-hover:bg-blue-600 group-hover:scale-110">
+                            <i data-lucide="play" fill="currentColor" class="translate-x-0.5 w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors text-lg tracking-tight">Термодинаміка на практиці та реальні процеси</h4>
+                    <p class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">Лектор: доц. Олена Петренко</p>
+                </div>
+            </div>
+            <!-- Video 3 -->
+            <div class="space-y-4 cursor-pointer group" onclick="playMockVideo('Квантові концепції', 'Михайло Солодкий', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="aspect-video bg-slate-900 rounded-2xl relative overflow-hidden transition-transform group-hover:scale-[1.02] shadow-md">
+                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=500" alt="Video cover" class="w-full h-full object-cover opacity-50">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-slate-950/90 rounded-full flex items-center justify-center text-white shadow-2xl transition-all group-hover:bg-blue-600 group-hover:scale-110">
+                            <i data-lucide="play" fill="currentColor" class="translate-x-0.5 w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors text-lg tracking-tight">Вступ до квантових концепцій мікросвіту</h4>
+                    <p class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">Лектор: д-р Михайло Солодкий</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="lectures-teachers-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 transition-opacity duration-200 hidden">
+            <!-- Video 4 -->
+            <div class="space-y-4 cursor-pointer group" onclick="playMockVideo('Методика неформальної освіти', 'Анна Власенко', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="aspect-video bg-slate-900 rounded-2xl relative overflow-hidden transition-transform group-hover:scale-[1.02] shadow-md">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=500" alt="Video cover" class="w-full h-full object-cover opacity-50">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-slate-950/90 rounded-full flex items-center justify-center text-white shadow-2xl transition-all group-hover:bg-blue-600 group-hover:scale-110">
+                            <i data-lucide="play" fill="currentColor" class="translate-x-0.5 w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors text-lg tracking-tight">Методика неформальної освіти у сучасній школі</h4>
+                    <p class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">Лектор: д-р Анна Власенко</p>
+                </div>
+            </div>
+            <!-- Video 5 -->
+            <div class="space-y-4 cursor-pointer group" onclick="playMockVideo('Викладання складних тем простими словами', 'Ігор Сергієнко', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="aspect-video bg-slate-900 rounded-2xl relative overflow-hidden transition-transform group-hover:scale-[1.02] shadow-md">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=500" alt="Video cover" class="w-full h-full object-cover opacity-50">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-slate-950/90 rounded-full flex items-center justify-center text-white shadow-2xl transition-all group-hover:bg-blue-600 group-hover:scale-110">
+                            <i data-lucide="play" fill="currentColor" class="translate-x-0.5 w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors text-lg tracking-tight">Викладання складних астрофізичних тем простими словами</h4>
+                    <p class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">Лектор: проф. Ігор Сергієнко</p>
+                </div>
+            </div>
+            <!-- Video 6 -->
+            <div class="space-y-4 cursor-pointer group" onclick="playMockVideo('Сучасні експерименти у шкільній лабораторії', 'Валерій Кравцов', 'https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="aspect-video bg-slate-900 rounded-2xl relative overflow-hidden transition-transform group-hover:scale-[1.02] shadow-md">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=500" alt="Video cover" class="w-full h-full object-cover opacity-50">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-slate-950/90 rounded-full flex items-center justify-center text-white shadow-2xl transition-all group-hover:bg-blue-600 group-hover:scale-110">
+                            <i data-lucide="play" fill="currentColor" class="translate-x-0.5 w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors text-lg tracking-tight">Сучасні прості експерименти у шкільній лабораторії</h4>
+                    <p class="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">Лектор: доц. Валерій Кравцов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESOURCES & MATERIALS -->
+    <section id="resources" class="max-w-7xl mx-auto px-6 mb-24">
+        <div class="grid md:grid-cols-2 gap-16">
+            <!-- side 1 -->
+            <div id="for-teachers" class="scroll-mt-6">
+                <div class="mb-8">
+                    <div class="flex items-center gap-3 mb-3 font-black text-2xl uppercase tracking-tighter text-slate-900">
+                        <i data-lucide="users" class="w-7 h-7 text-blue-600"></i>
+                        <h2>Для вчителів</h2>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-xl">Сучасні та дієві підходи, інструменти неформальної освіти та новітні методики викладання предмету.</p>
+                </div>
+                <div class="space-y-4">
+                    <a href="#" onclick="openDownloadModal('Записи професійних тренінгів для вчителів')" class="w-full flex items-center justify-between p-5 bg-white border border-slate-200 rounded-2xl hover:border-blue-300 hover:bg-blue-50/20 transition-all group shadow-sm cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 group-hover:text-blue-500 group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="file-video" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-extrabold text-slate-700 text-left">Записи професійних тренінгів</span>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-[18px] h-[18px] text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1.5 transition-all"></i>
+                    </a>
+                    <a href="#" onclick="openDownloadModal('Методичні презентації та розробки презентаційних слайдів')" class="w-full flex items-center justify-between p-5 bg-white border border-slate-200 rounded-2xl hover:border-blue-300 hover:bg-blue-50/20 transition-all group shadow-sm cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 group-hover:text-blue-500 group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="presentation" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-extrabold text-slate-700 text-left">Методичні презентації та розробки</span>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-[18px] h-[18px] text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1.5 transition-all"></i>
+                    </a>
+                    <a href="#" onclick="openDownloadModal('Посібник із сучасних виховних технік та неформальних методів')" class="w-full flex items-center justify-between p-5 bg-white border border-slate-200 rounded-2xl hover:border-blue-300 hover:bg-blue-50/20 transition-all group shadow-sm cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 group-hover:text-blue-500 group-hover:bg-blue-50 transition-colors">
+                                <i data-lucide="book-open-check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-extrabold text-slate-700 text-left">Посібник із сучасних виховних технік</span>
+                        </div>
+                        <i data-lucide="arrow-right" class="w-[18px] h-[18px] text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1.5 transition-all"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- side 2 -->
+            <div id="materials" class="scroll-mt-6">
+                <div class="mb-8">
+                    <div class="flex items-center gap-3 mb-3 font-black text-2xl uppercase tracking-tighter text-slate-900">
+                        <i data-lucide="book-open" class="w-7 h-7 text-blue-600"></i>
+                        <h2>Матеріали та підручники</h2>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-xl">Методичні посібники, корисні посилання для спрощення навчання та інтерактивні збірники задач.</p>
+                </div>
+                <div class="space-y-4">
+                    <div onclick="openDownloadModal('Збірники практичних та олімпіадних задач з фізики (PDF)')" class="w-full flex items-center gap-4 p-5 bg-slate-50/80 border border-slate-100 rounded-2xl text-slate-700 hover:bg-slate-100 hover:border-slate-200 transition-all text-left group cursor-pointer shadow-sm">
+                        <div class="w-11 h-11 bg-white border border-slate-100 rounded-xl flex items-center justify-center shadow-sm text-slate-500 group-hover:text-blue-500 transition-colors">
+                            <i data-lucide="file-text" class="w-[22px] h-[22px]"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-black text-sm uppercase tracking-wide text-slate-700">Збірники практичних задач</div>
+                            <p class="text-xs text-slate-400 mt-0.5">PDF-матеріали та неформальні методички для скачування</p>
+                        </div>
+                    </div>
+                    <div onclick="toggleInteractiveLinks()" class="w-full flex items-center gap-4 p-5 bg-slate-50/80 border border-slate-100 rounded-2xl text-slate-700 hover:bg-slate-100 hover:border-slate-200 transition-all text-left group cursor-pointer shadow-sm">
+                        <div class="w-11 h-11 bg-white border border-slate-100 rounded-xl flex items-center justify-center shadow-sm text-slate-500 group-hover:text-blue-500 transition-colors">
+                            <i data-lucide="external-link" class="w-[22px] h-[22px]"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-black text-sm uppercase tracking-wide text-slate-700">Корисні інтерактивні посилання</div>
+                            <p class="text-xs text-slate-400 mt-0.5">Клацніть, щоб побачити перелік цифрових ресурсів та симуляцій</p>
+                        </div>
+                    </div>
+                    <!-- Hidden List of Interactive Links -->
+                    <div id="interactive-links-panel" class="p-5 bg-slate-50 border border-slate-200 rounded-2xl hidden space-y-3 transition-all duration-300">
+                        <div class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Рекомендовані ресурси:</div>
+                        <a href="https://phet.colorado.edu/uk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-sm text-blue-600 hover:underline">
+                            <span>PhET: Інтерактивні симуляції з фізики (Колорадо)</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://physics.naboj.org/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-sm text-blue-600 hover:underline">
+                            <span>Офіційний архів задач змагань Náboj Physics</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://fykos.org/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-sm text-blue-600 hover:underline">
+                            <span>Фізичне співтовариство FYKOS (Чехія)</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DUAL TRACK TIMELINE (ПОДІЇ ТА МОЖЛИВОСТІ) -->
+    <section id="events" class="max-w-7xl mx-auto px-6 pb-24 scroll-mt-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div class="text-left">
+                <div class="flex items-center gap-3 mb-3 font-black text-3xl uppercase tracking-tighter text-slate-900">
+                    <i data-lucide="calendar" class="w-8 h-8 text-blue-600"></i>
+                    <h2>Події та можливості</h2>
+                </div>
+                <p class="text-slate-500 text-base max-w-2xl leading-relaxed">
+                    Стежте за траєкторією розвитку нашого освітнього простору через хронологію видатних подій та каталог відкритих можливостей.
+                </p>
+            </div>
+            <!-- Interactive Filters -->
+            <div class="flex flex-wrap gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200/50 self-start md:self-end">
+                <button onclick="filterTimeline('all')" id="btn-filter-all" class="px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-white text-blue-600 shadow-sm cursor-pointer">Усі</button>
+                <button onclick="filterTimeline('students')" id="btn-filter-students" class="px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all text-slate-500 hover:text-slate-800 cursor-pointer">Для учнів</button>
+                <button onclick="filterTimeline('teachers')" id="btn-filter-teachers" class="px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all text-slate-500 hover:text-slate-800 cursor-pointer">Для вчителів</button>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+            
+            <!-- TRACK 1: ХРОНІКА ПОДІЙ (Past Accomplishments) -->
+            <div class="bg-slate-50/70 border border-slate-200/50 rounded-3xl p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-8 pb-4 border-b border-slate-200/60">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
+                        <i data-lucide="history" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-xl text-slate-900 tracking-tight">Хроніка подій</h3>
+                        <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Ключові віхи та успіхи проєкту</p>
+                    </div>
+                </div>
+
+                <!-- Vertical Line Container -->
+                <div class="relative border-l-2 border-dashed border-blue-200 ml-4 pl-8 space-y-10">
+                    
+                    <!-- Event 1 -->
+                    <div class="relative timeline-item" data-target="all teachers" onclick="showTimelineDetail('Старт ініціативи в УжНУ', '15 Вересня 2023', 'Міжнародна зустріч в Ужгородському національному університеті для координації цілей та створення навчальних програм з неформальної фізичної освіти за участю партнерів із Чехії та Словаччини.', 'teachers')">
+                        <!-- Bullet icon -->
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-600 border-4 border-white rounded-full flex items-center justify-center text-white shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-blue-600 text-[10px] font-black tracking-widest uppercase bg-blue-100 px-2 py-1 rounded-md">15 вересня 2023</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Старт ініціативи в УжНУ</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Міжнародна зустріч в Ужгородському національному університеті для координації цілей...</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Докладніше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="relative timeline-item" data-target="all students" onclick="showTimelineDetail('Залучення шкіл Закарпаття до мережі Хабу', '10 Жовтня 2023', 'Понад 15 провідних ліцеїв та закладів середньої освіти Закарпатської області офіційно підписали меморандуми про співпрацю та приєдналися до експериментальної програми з підвищення зацікавленості учнів фізикою.', 'students')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-600 border-4 border-white rounded-full flex items-center justify-center text-white shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-blue-600 text-[10px] font-black tracking-widest uppercase bg-blue-100 px-2 py-1 rounded-md">10 жовтня 2023</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Залучення шкіл Закарпаття до мережі Хабу</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Понад 15 провідних шкіл Закарпаття приєдналися до нашої програми розвитку неформальної освіти...</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Докладніше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="relative timeline-item" data-target="all students teachers" onclick="showTimelineDetail('Освітня поїздка до Праги', '15-18 Жовтня 2023', 'Обдаровані учні Закарпаття та педагоги відвідали Карлів університет у Празі, навчальні кабінети FYKOS та взяли участь у практичних лабораторних заняттях з неформального навчання.', 'students')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-600 border-4 border-white rounded-full flex items-center justify-center text-white shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-blue-600 text-[10px] font-black tracking-widest uppercase bg-blue-100 px-2 py-1 rounded-md">15 жовтня 2023</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Освітня поїздка до Праги</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Делегація українських педагогів та обдарованих школярів провела спільні наукові дослідження у Карловому університеті.</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Докладніше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="relative timeline-item" data-target="all teachers" onclick="showTimelineDetail('Презентація посібника «Позитивний заряд фізики»', '24 Листопада 2023', 'Створення та офіційна дистрибуція першого методичного посібника з неформальної фізики для шкільних вчителів. Посібник містить збірку завдань, покрокові описи експериментів та інтерактивні ігри.', 'teachers')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-600 border-4 border-white rounded-full flex items-center justify-center text-white shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-blue-600 text-[10px] font-black tracking-widest uppercase bg-blue-100 px-2 py-1 rounded-md">24 листопада 2023</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Презентація посібника «Позитивний заряд фізики»</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Офіційна дистрибуція методичних матеріалів неформальної освіти для вчителів Закарпатської області.</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Докладніше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Event 5 -->
+                    <div class="relative timeline-item" data-target="all students" onclick="showTimelineDetail('Перемоги на кубку Fyziklání у Чехії', '11-15 Квітня 2024', 'Успішне представлення Закарпатського регіону України на міжнародному фізичному кубку в Празі. Наші учні здобули блискучі командні результати серед найсильніших закордонних команд.', 'students')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-600 border-4 border-white rounded-full flex items-center justify-center text-white shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-blue-600 text-[10px] font-black tracking-widest uppercase bg-blue-100 px-2 py-1 rounded-md">11 квітня 2024</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Перемоги на кубку Fyziklání у Чехії</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Учнівська делегація України виступила у фіналі міжнародного турніру та продемонструвала високий науковий рівень...</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Докладніше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRACK 2: ВІКНО МОЖЛИВОСТЕЙ (Upcoming Opportunities) -->
+            <div class="bg-slate-50/70 border border-slate-200/50 rounded-3xl p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-8 pb-4 border-b border-slate-200/60">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-xl text-slate-900 tracking-tight">Відкриті можливості</h3>
+                        <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Календар подій, вебінарів та реєстрацій</p>
+                    </div>
+                </div>
+
+                <!-- Vertical Line Container -->
+                <div class="relative border-l-2 border-dashed border-blue-200 ml-4 pl-8 space-y-10">
+                    
+                    <!-- Opportunity 1 -->
+                    <div class="relative timeline-item" data-target="all students" onclick="showTimelineDetail('Весняні інтенсиви у лабораторіях УжНУ', 'Травень-Червень 2024', 'Набір учнів 8-11 класів на 5-денні практичні інтенсиви з експериментальної оптики та мікроелектроніки на базі фізичного факультету УжНУ. Робота зі спектрометрами та сучасними датчиками.', 'students')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-50 border-4 border-blue-600 text-blue-600 rounded-full flex items-center justify-center shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-emerald-600 text-[10px] font-black tracking-widest uppercase bg-emerald-50 border border-emerald-100 px-2 py-1 rounded-md">Скоро набір</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Весняні інтенсиви у лабораторіях УжНУ</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Робота з спектрометрами, сучасними датчиками лазерної оптики та цифровим кабінетним обладнанням під керівництвом молодих науковців.</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Дізнатися більше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 2 -->
+                    <div class="relative timeline-item" data-target="all teachers" onclick="showTimelineDetail('Літня школа кваліфікації вчителів', 'Липень 2024', 'Офіційний онлайн-курс та воркшопи з неформальної педагогіки від Ужгородського національного університету. Методика використання інтерактивних симуляцій PhET.', 'teachers')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-50 border-4 border-blue-600 text-blue-600 rounded-full flex items-center justify-center shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-emerald-600 text-[10px] font-black tracking-widest uppercase bg-emerald-50 border border-emerald-100 px-2 py-1 rounded-md">Для вчителів</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Літня школа кваліфікації вчителів</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Офіційна сертифікація за 30-годинною програмою неформального викладання предмету «Фізика та астрономія».</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Дізнатися більше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 3 -->
+                    <div class="relative timeline-item" data-target="all students" onclick="showTimelineDetail('Реєстрація у навчальні наукові гуртки', 'Вересень 2024', 'Безкоштовні щотижневі очні гуртки з астрофізики, робототехніки та розв`язання олімпіадних задач для школярів Закарпаття. Надійний фундамент для участі у міжнародних STEM-змаганнях.', 'students')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-50 border-4 border-blue-600 text-blue-600 rounded-full flex items-center justify-center shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-emerald-600 text-[10px] font-black tracking-widest uppercase bg-emerald-50 border border-emerald-100 px-2 py-1 rounded-md">Гуртки хабу</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Реєстрація у навчальні наукові गूртки</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Запуск безкоштовних щотижневих сесій з робототехніки, астрономії та змагальної фізики.</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Дізнатися більше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 4 -->
+                    <div class="relative timeline-item" data-target="all students" onclick="showTimelineDetail('Старт відбору на Náboj Physics 2025', 'Жовтень-Листопад 2024', 'Початок реєстрації школярів України на участь у міжнародному командному змаганні з фізики. Організація методичних вебінарів та тренувань для капітанів та представників збірних.', 'students')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-50 border-4 border-blue-600 text-blue-600 rounded-full flex items-center justify-center shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-emerald-600 text-[10px] font-black tracking-widest uppercase bg-emerald-50 border border-emerald-100 px-2 py-1 rounded-md">Прийом заявок</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Старт відбору на Náboj Physics 2025</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Відкриття реєстраційних форм для формування команд старшокласників для участі у змаганнях європейського рівня.</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Дізнатися більше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 5 -->
+                    <div class="relative timeline-item" data-target="all students teachers" onclick="showTimelineDetail('Науковий STEM-фестиваль «Заряд Фізики»', 'Грудень 2024', 'Головне молодіжне наукове шоу року: презентації власних STEM-винаходів перед закордонним науковим журі, грошові призи та гранти для кращих вчителів України.', 'students')">
+                        <span class="absolute -left-12 top-1.5 w-8 h-8 bg-blue-50 border-4 border-blue-600 text-blue-600 rounded-full flex items-center justify-center shadow-md cursor-pointer transition-transform hover:scale-115">
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                        <div class="bg-white border border-slate-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-md transition-all cursor-pointer group">
+                            <span class="text-emerald-600 text-[10px] font-black tracking-widest uppercase bg-emerald-50 border border-emerald-100 px-2 py-1 rounded-md">Фінал року</span>
+                            <h4 class="font-extrabold text-slate-900 text-lg mt-2 group-hover:text-blue-600 transition-colors">Науковий STEM-фестиваль «Заряд Фізики»</h4>
+                            <p class="text-sm text-slate-500 mt-1 line-clamp-2">Масштабний майданчик розробок, дослідів та обміну педагогічним досвідом між вчителями України та країн V4.</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 mt-3 hover:underline">Дізнатися більше <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Social Facebook Widget Card -->
+        <div class="mt-16 bg-blue-600 text-white rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-blue-500/30 rounded-full blur-2xl"></div>
+            <div class="space-y-4 z-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-white">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-sm tracking-wider uppercase opacity-90">Завжди на зв'язку</span>
+                </div>
+                <h3 class="text-3xl font-black tracking-tight leading-tight">Приєднуйтесь до нашої спільноти у Facebook</h3>
+                <p class="text-blue-100 text-base max-w-xl">Стежте за репортажами олімпіадних поїздок, анонсами нових вебінарів та фотозвітами у режимі реального часу.</p>
+            </div>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="bg-white text-blue-600 hover:bg-slate-50 px-8 py-4 rounded-2xl font-black text-sm tracking-wide transition-all shadow-lg hover:scale-[1.02] whitespace-nowrap z-10 flex items-center gap-2">
+                Долучитися до групи <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE DETAIL POPUP MODAL -->
+    <div id="details-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white w-full max-w-xl rounded-3xl p-6 md:p-8 relative shadow-2xl scale-95 border border-slate-100 transition-transform duration-300 overflow-y-auto max-h-[90vh]">
+            
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-5 right-5 w-10 h-10 bg-slate-100 hover:bg-slate-200 text-slate-500 rounded-full flex items-center justify-center transition-colors cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Modal Content Slots -->
+            <div class="space-y-6">
+                <!-- Icon badge -->
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center" id="modal-icon-container">
+                    <i data-lucide="info" class="w-6 h-6" id="modal-icon"></i>
+                </div>
+                
+                <div class="space-y-2">
+                    <span class="text-blue-600 text-xs font-black tracking-wider uppercase inline-block" id="modal-subtitle"></span>
+                    <h3 class="text-2xl font-black text-slate-900 tracking-tight leading-tight" id="modal-title"></h3>
+                </div>
+
+                <!-- Video Slot (hidden by default) -->
+                <div id="modal-video-container" class="aspect-video bg-slate-950 rounded-2xl overflow-hidden hidden">
+                    <iframe class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen id="modal-iframe"></iframe>
+                </div>
+
+                <div class="text-slate-600 text-sm leading-relaxed whitespace-pre-line" id="modal-description"></div>
+
+                <!-- Action Button Slot -->
+                <div class="flex gap-4 pt-4" id="modal-actions">
+                    <button onclick="closeModal()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-3 rounded-xl font-bold transition-all text-sm">Зрозуміло</button>
+                    <a href="https://fyziklani.cz" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-all text-sm hidden flex items-center gap-1.5 shadow-md shadow-blue-500/10" id="modal-action-btn">
+                        <span>Детальніше</span> <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE SCRIPTS -->
+    <script>
+        // Init Lucide Icons globally
+        lucide.createIcons();
+
+        // Standard Modal Control Elements
+        const modal = document.getElementById('details-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalSubtitle = document.getElementById('modal-subtitle');
+        const modalDescription = document.getElementById('modal-description');
+        const modalVideoContainer = document.getElementById('modal-video-container');
+        const modalIframe = document.getElementById('modal-iframe');
+        const modalActionBtn = document.getElementById('modal-action-btn');
+        const modalIcon = document.getElementById('modal-icon');
+        const modalIconContainer = document.getElementById('modal-icon-container');
+
+        // Gallery Photos Data
+        const galleryUrls = [
+            "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=800"
+        ];
+        
+        // Gallery View State
+        let currentGalleryIndex = 0;
+
+        // Video Lectures Section tab switching logic
+        function switchTab(tab) {
+            const studentsBtn = document.getElementById('tab-students');
+            const teachersBtn = document.getElementById('tab-teachers');
+            
+            const studentsGrid = document.getElementById('lectures-students-grid');
+            const teachersGrid = document.getElementById('lectures-teachers-grid');
+
+            if (tab === 'students') {
+                // Style Active buttons
+                studentsBtn.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+                studentsBtn.classList.remove('text-slate-400');
+                
+                teachersBtn.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+                teachersBtn.classList.add('text-slate-400');
+
+                // Animate grids fade transition
+                teachersGrid.classList.add('opacity-0');
+                setTimeout(() => {
+                    teachersGrid.classList.add('hidden');
+                    studentsGrid.classList.remove('hidden');
+                    setTimeout(() => {
+                        studentsGrid.classList.remove('opacity-0');
+                    }, 50);
+                }, 150);
+            } else {
+                teachersBtn.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+                teachersBtn.classList.remove('text-slate-400');
+                
+                studentsBtn.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+                studentsBtn.classList.add('text-slate-400');
+
+                studentsGrid.classList.add('opacity-0');
+                setTimeout(() => {
+                    studentsGrid.classList.add('hidden');
+                    teachersGrid.classList.remove('hidden');
+                    setTimeout(() => {
+                        teachersGrid.classList.remove('opacity-0');
+                    }, 50);
+                }, 150);
+            }
+        }
+
+        // Timeline items Filtering logic
+        function filterTimeline(category) {
+            // Update filter buttons styling
+            const btnAll = document.getElementById('btn-filter-all');
+            const btnStudents = document.getElementById('btn-filter-students');
+            const btnTeachers = document.getElementById('btn-filter-teachers');
+
+            const buttons = [btnAll, btnStudents, btnTeachers];
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-blue-600', 'shadow-sm');
+                btn.classList.add('text-slate-500');
+            });
+
+            if (category === 'all') {
+                btnAll.classList.add('bg-white', 'text-blue-600', 'shadow-sm');
+                btnAll.classList.remove('text-slate-500');
+            } else if (category === 'students') {
+                btnStudents.classList.add('bg-white', 'text-blue-600', 'shadow-sm');
+                btnStudents.classList.remove('text-slate-500');
+            } else if (category === 'teachers') {
+                btnTeachers.classList.add('bg-white', 'text-blue-600', 'shadow-sm');
+                btnTeachers.classList.remove('text-slate-500');
+            }
+
+            // Iterate through all timeline structures
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const targetValues = item.getAttribute('data-target').split(' ');
+                
+                if (targetValues.includes(category)) {
+                    // Show item with clean transitions
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.classList.remove('scale-95', 'opacity-0');
+                    }, 20);
+                } else {
+                    // Hide item
+                    item.classList.add('scale-95', 'opacity-0');
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 200);
+                }
+            });
+        }
+
+        // Handle opening timeline details modal
+        function showTimelineDetail(title, dateString, fullDescription, type) {
+            // Setup title & metadata
+            modalTitle.innerText = title;
+            modalSubtitle.innerText = dateString;
+            modalDescription.innerText = fullDescription + "\n\nЦей захід організовано в рамках проєкту 'The Positive Charge of Physics Transfer by Non-Formal V4-Ukraine Learning' з метою надання вчителям сучасних методик викладання, а учням — доступу до найкращих світових кубків і турнірів з фізики.";
+            
+            // Unhide appropriate icon
+            modalIconContainer.className = (type === 'teachers') ? 
+                "w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center" : 
+                "w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center";
+            
+            // Toggle Icon graphics dynamically
+            modalIcon.setAttribute('data-lucide', (type === 'teachers') ? 'users' : 'graduation-cap');
+            lucide.createIcons();
+
+            // Hide Video component
+            modalVideoContainer.classList.add('hidden');
+            modalIframe.src = "";
+
+            // Configure external action links
+            modalActionBtn.classList.remove('hidden');
+            modalActionBtn.href = (type === 'teachers') ? "#for-teachers" : "https://fyziklani.cz/";
+            
+            // Open modal visually
+            openModalAnimation();
+        }
+
+        // Play mock video on cards
+        function playMockVideo(title, speaker, embedUrl) {
+            modalTitle.innerText = title;
+            modalSubtitle.innerText = "Відеолекція • Лектор: " + speaker;
+            modalDescription.innerText = "Дивіться відеофіксацію лекції у рамках нашого освітнього процесу. Даний матеріал допоможе збагатити знання учнів чи вчителів з найпопулярніших експериментальних напрямків, розроблених сумісно з експертами країн Вишеградської четвірки.";
+            
+            // Icon layout setup
+            modalIconContainer.className = "w-12 h-12 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center";
+            modalIcon.setAttribute('data-lucide', 'video');
+            lucide.createIcons();
+
+            // Setup and display video iframe
+            modalVideoContainer.classList.remove('hidden');
+            modalIframe.src = embedUrl;
+
+            // Hide external button since video is inside
+            modalActionBtn.classList.add('hidden');
+
+            openModalAnimation();
+        }
+
+        // Open custom design download modal
+        function openDownloadModal(fileName) {
+            modalTitle.innerText = "Одержати: " + fileName;
+            modalSubtitle.innerText = "Завантаження матеріалів";
+            modalDescription.innerText = "Ви збираєтесь завантажити '" + fileName + "'.\nМатеріали надаються у відкритому електронному вигляді безкоштовно у межах співпраці з Міжнародним Вишеградським Фондом для задоволення академічних та освітніх потреб шкіл, вчителів та молоді України.";
+            
+            // Icon graphics setup
+            modalIconContainer.className = "w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center";
+            modalIcon.setAttribute('data-lucide', 'download-cloud');
+            lucide.createIcons();
+
+            modalVideoContainer.classList.add('hidden');
+            modalIframe.src = "";
+
+            modalActionBtn.classList.remove('hidden');
+            modalActionBtn.href = "#"; // Link directly to download action
+            modalActionBtn.onclick = function(e) {
+                e.preventDefault();
+                alert("Завантаження матеріалу '" + fileName + "' розпочалося у фоновому режимі!");
+                closeModal();
+            };
+
+            openModalAnimation();
+        }
+
+        // Show Fyziklani Photo Gallery in modal viewer
+        function openGallery(startIndex) {
+            currentGalleryIndex = startIndex;
+            displayGalleryImage();
+
+            modalSubtitle.innerText = "Галерея • Fyziklání Кубок";
+            modalDescription.innerText = "Фотографії з поїздок наших команд на міжнародні змагання до Праги. Старшокласники з різних регіонів України об'єднали розумові сили, щоб вирішувати найзахопливіші фізичні завдання пліч-о-пліч з однолітками з усього світу.";
+            
+            modalIconContainer.className = "w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center";
+            modalIcon.setAttribute('data-lucide', 'image');
+            lucide.createIcons();
+
+            modalActionBtn.classList.add('hidden');
+
+            openModalAnimation();
+        }
+
+        // Gallery helper that sets beautiful images
+        function displayGalleryImage() {
+            modalTitle.innerText = "Світлини змагань та подорожей (" + (currentGalleryIndex + 1) + "/3)";
+            
+            // Render beautiful slider in modal placeholder instead of standard iFrame
+            modalVideoContainer.classList.remove('hidden');
+            modalVideoContainer.innerHTML = `
+                <div class="relative w-full h-full">
+                    <img src="${galleryUrls[currentGalleryIndex]}" class="w-full h-full object-cover rounded-2xl shadow-inner transition-opacity duration-350">
+                    <!-- Left Arrow selector -->
+                    <button onclick="navigateGallery(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white flex items-center justify-center transition-colors">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <!-- Right Arrow selector -->
+                    <button onclick="navigateGallery(1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white flex items-center justify-center transition-colors">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        // Navigate inside modal photo gallery slider
+        function navigateGallery(direction) {
+            currentGalleryIndex += direction;
+            if (currentGalleryIndex < 0) currentGalleryIndex = galleryUrls.length - 1;
+            if (currentGalleryIndex >= galleryUrls.length) currentGalleryIndex = 0;
+            displayGalleryImage();
+        }
+
+        // Helper trigger to handle modal presentation
+        function openModalAnimation() {
+            modal.classList.remove('pointer-events-none');
+            modal.classList.add('opacity-100');
+            modal.firstElementChild.classList.remove('scale-95');
+            modal.firstElementChild.classList.add('scale-100');
+            document.body.style.overflow = 'hidden'; // Lock scrolling
+        }
+
+        // Close details modal
+        function closeModal() {
+            modal.classList.add('pointer-events-none');
+            modal.classList.remove('opacity-100');
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+            document.body.style.overflow = ''; // Unlock scrolling
+            
+            // Stop potential youtube videos from playing in the background
+            modalIframe.src = "";
+            // Reset modal internal elements
+            setTimeout(() => {
+                modalVideoContainer.innerHTML = `<iframe class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen id="modal-iframe"></iframe>`;
+                // Re-bind to prevent global variable pointer leaks
+                window.modalIframe = document.getElementById('modal-iframe');
+            }, 300);
+        }
+
+        // Close on clicking outside container shadow
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Toggle interactive links section
+        function toggleInteractiveLinks() {
+            const panel = document.getElementById('interactive-links-panel');
+            if (panel.classList.contains('hidden')) {
+                panel.classList.remove('hidden');
+                panel.classList.add('animate-fade-in');
+            } else {
+                panel.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

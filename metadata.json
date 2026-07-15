@@ -1,0 +1,8 @@
+{
+  "name": "Charge of Physics",
+  "description": "Центральна платформа для учнів та вчителів з доступом до фізичних турнірів, матеріалів неформального навчання та сучасних методик викладання.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

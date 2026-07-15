@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Освітній Хаб ТЕІБ — Charge of Physics (Адаптований макет)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e1e9ff',
+                            200: '#cbd8ff',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a', // Deep Blue
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        /* Smooth scale animation on hover */
+        .card-zoom:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900 leading-normal">
+
+    <!-- Global Notification Toast Panel -->
+    <div id="toast-container" class="fixed top-5 left-1/2 -translate-x-1/2 z-[100] space-y-2 pointer-events-none"></div>
+
+    <!-- MAIN MENU & SITE PREVIEW HELPER HEADER -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs px-4 md:px-8 py-3.5">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <!-- Simulated Brand Logo mimicking teib.info -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand-900 rounded-xl flex items-center justify-center text-white shadow-md shadow-brand-900/15">
+                    <span class="font-bold text-lg">⚡</span>
+                </div>
+                <div>
+                     <h1 class="font-extrabold text-[#1e3a8a] text-sm leading-tight uppercase tracking-tight">Кафедра ТЕІБ</h1>
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Львівський національний університет</p>
+                </div>
+            </div>
+
+            <!-- Header Action buttons including integration and quick code options -->
+            <div class="flex items-center gap-2.5">
+                <a href="https://teib.info/?page_id=1146" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-600 hover:text-brand-900 bg-slate-100/80 hover:bg-slate-100 px-3 py-2 rounded-xl border border-slate-200 transition-all flex items-center gap-1.5">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    <span>Оригінальний URL</span>
+                </a>
+                <button onclick="openCodeExplorer()" class="text-xs font-black text-white bg-brand-900 hover:bg-brand-800 px-4 py-2 rounded-xl shadow-lg shadow-brand-900/10 transition-all flex items-center gap-1.5 cursor-pointer">
+                    <i data-lucide="code" class="w-3.5 h-3.5"></i>
+                    <span>Отримати чистий HTML</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN ROOT CONTAINER -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+
+        <!-- Integration preview controller alert -->
+        <div class="bg-gradient-to-r from-brand-900 to-brand-800 text-white border border-brand-900 rounded-2xl p-4 sm:p-5 mb-8 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start gap-3.5">
+                <div class="p-2.5 bg-white/10 rounded-xl text-amber-300">
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h2 class="text-sm font-black uppercase tracking-wider text-amber-300">Адаптовано під сторінку теїб (page_id=1146)</h2>
+                    <p class="text-[12px] text-slate-200 max-w-3xl mt-0.5 font-medium leading-relaxed">
+                        Макет організовано за структурою оригінального сайту: <strong>Ліва частина (75% ширини)</strong> — повністю ваш Освітній Хаб «Charge of Physics», <strong>Права частина (25% ширини)</strong> — постійна колонка новин кафедр і соціальних панелей. Ви можете переглянути, як вони інтегруються у реальному житті.
+                    </p>
+                </div>
+            </div>
+            <button onclick="copyToClipboard('https://teib.info/?page_id=1146', 'Посилання на сайт скопійовано!')" class="text-[11px] font-bold text-white hover:text-brand-900 bg-white/10 hover:bg-white px-3.5 py-2 rounded-lg border border-white/20 transition-all whitespace-nowrap self-start sm:self-center cursor-pointer">
+                Копіювати URL сайту
+            </button>
+        </div>
+
+        <!-- TWO COLUMN RESPONSIVE LAYOUT (Left Content, Right News Sidebar) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- ==================== LEFT COLUMN: MULTI-SECTION ADAPTED HUB (75% WIDTH) ==================== -->
+            <main class="lg:col-span-8 space-y-10">
+
+                <!-- 1. Support representation of Visegrad Fund (placed strictly above the Hero block) -->
+                <div id="visegrad-banner" class="bg-slate-900 text-white rounded-3xl p-5 md:p-6 border border-slate-800 shadow-lg relative overflow-hidden">
+                    <!-- Geometric accent pattern behind banner -->
+                    <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-blue-600/10 blur-2xl rounded-full"></div>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10 text-center sm:text-left">
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <div class="w-12 h-12 rounded-full border border-white/15 bg-white/5 flex items-center justify-center flex-shrink-0 text-xl shadow-inner">
+                                🌏
+                            </div>
+                            <div class="space-y-1">
+                                <span class="font-black text-brand-200 text-[10px] sm:text-xs uppercase tracking-widest block">
+                                    ЗА ПІДТРИМКИ INTERNATIONAL VISEGRAD FUND (VISEGRAD+)
+                                </span>
+                                <h3 class="italic text-slate-300 font-mono text-[11px] sm:text-xs font-semibold">
+                                    "The Positive Charge of Physics Transfer by Non-Formal V4–Ukraine Learning"
+                                </h3>
+                            </div>
+                        </div>
+                        <a href="https://www.visegradfund.org/" target="_blank" rel="noopener noreferrer" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl text-xs font-black transition-all shadow-md hover:shadow-brand-600/30 whitespace-nowrap cursor-pointer">
+                            До сайту фонду
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. RECONSTRUCTED HERO BLOCK (With three specific anchor buttons) -->
+                <section id="hero" class="bg-white rounded-3xl border border-slate-200/60 shadow-xs overflow-hidden relative">
+                    <div class="absolute top-0 right-0 w-72 h-72 bg-brand-50/50 blur-3xl rounded-full"></div>
+                    
+                    <div class="p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 relative z-10">
+                        <div class="flex-1 space-y-5">
+                            <span class="text-xs font-black text-brand-900 bg-brand-50 px-3 py-1.5 rounded-full uppercase tracking-widest inline-block border border-brand-100">
+                                Ініціатива «Charge of Physics»
+                            </span>
+                            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight tracking-tight">
+                                Позитивний заряд фізики:<br />
+                                <span class="text-brand-700">Трансфер знань V4–Україна</span>
+                            </h2>
+                            <p class="text-sm text-slate-500 leading-relaxed max-w-xl">
+                                Централізована освітня платформа кафедри ТЕІБ ЛНУ для талановитих учнів та прогресивних викладачів. Доступ до міжнародних наукових турнірів, лабораторій та перевірених європейських методик неформальної освіти.
+                            </p>
+                            
+                            <!-- Exactly THREE required buttons targeting anchors on the page -->
+                            <div class="pt-2 flex flex-wrap gap-2.5">
+                                <a href="#for-whom" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#1e3a8a] text-white px-5 py-3 rounded-xl font-bold hover:bg-brand-800 transition-all shadow-md shadow-brand-900/12 text-xs">
+                                    <i data-lucide="users" class="w-4 h-4"></i> Для кого?
+                                </a>
+                                <a href="#opportunities" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-5 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/12 text-xs">
+                                    <i data-lucide="sparkles" class="w-4 h-4"></i> Можливості
+                                </a>
+                                <a href="#results" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300/60 px-5 py-3 rounded-xl font-bold transition-all text-xs">
+                                    <i data-lucide="award" class="w-4 h-4 text-amber-500"></i> Результати
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Mini visual side display representational frame with Charge.png -->
+                        <div class="w-[210px] h-[210px] flex-shrink-0 flex items-center justify-center bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm mx-auto md:mx-0">
+                            <img 
+                              src="Charge.png" 
+                              alt="Charge Logo" 
+                              class="w-full h-full object-contain"
+                              referrerpolicy="no-referrer"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. SECTION - ДЛЯ КОГО? (Active link targets #for-whom) -->
+                <section id="for-whom" class="bg-white rounded-3xl border border-slate-200/60 p-6 sm:p-8 space-y-8 scroll-mt-20">
+                    <div class="border-b border-slate-100 pb-4">
+                        <div class="flex items-center gap-2 text-brand-900 mb-1">
+                            <i data-lucide="users" class="w-5 h-5 text-brand-900"></i>
+                            <span class="text-xs font-black uppercase tracking-wider">Цільова аудиторія</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 tracking-tight">Для кого створено проєкт?</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                            Оберіть вашу роль, щоб переглянути можливості участі в проєкті та зареєструватись
+                        </p>
+                    </div>
+
+                    <!-- Three interactive clickable cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Pathway 1: Students -->
+                        <div 
+                          id="pathway-card-students"
+                          onclick="selectPathway('students')" 
+                          class="cursor-pointer rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group select-none bg-[#1e3a8a] text-white shadow-xl shadow-blue-900/10 scale-[1.02] ring-2 ring-blue-500/30"
+                        >
+                            <div class="space-y-4">
+                                <div id="pathway-icon-container-students" class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-350 bg-white/15 text-white mb-4">
+                                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                                </div>
+                                <h4 id="pathway-title-students" class="text-lg font-black tracking-tight text-white transition-colors duration-200">Студенти</h4>
+                                <p id="pathway-desc-students" class="text-xs leading-relaxed font-semibold text-white/90 transition-colors duration-200">
+                                    Створюйте STEM-відео, використовуйте неформальну освіту в навчанні, долучайтеся до організації фізичних турнірів, освітніх подорожей та міжнародних ініціатив.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span id="pathway-btn-span-students" class="text-xs font-black inline-flex items-center gap-1 transition-colors duration-200 text-white">
+                                    Переглянути <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Pathway 2: High schooler -->
+                        <div 
+                          id="pathway-card-schoolers"
+                          onclick="selectPathway('schoolers')" 
+                          class="cursor-pointer rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group select-none bg-white border border-slate-200 hover:border-slate-300 text-slate-850 hover:shadow-lg hover:scale-[1.01]"
+                        >
+                            <div class="space-y-4">
+                                <div id="pathway-icon-container-schoolers" class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-350 bg-slate-100 text-slate-800 mb-4">
+                                    <i data-lucide="book-open" class="w-5 h-5"></i>
+                                </div>
+                                <h4 id="pathway-title-schoolers" class="text-lg font-black tracking-tight text-slate-900 transition-colors duration-200">Старшокласники</h4>
+                                <p id="pathway-desc-schoolers" class="text-xs leading-relaxed font-semibold text-slate-500 transition-colors duration-200">
+                                    Беріть участь у STEM-заходах та фізичних турнірах, відвідуйте інтерактивні музеї науки та лабораторії фізичного факультету.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span id="pathway-btn-span-schoolers" class="text-xs font-black inline-flex items-center gap-1 transition-colors duration-200 text-[#1e3a8a]">
+                                    Переглянути <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Pathway 3: Teachers -->
+                        <div 
+                          id="pathway-card-teachers"
+                          onclick="selectPathway('teachers')" 
+                          class="cursor-pointer rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group select-none bg-white border border-slate-200 hover:border-slate-300 text-slate-850 hover:shadow-lg hover:scale-[1.01]"
+                        >
+                            <div class="space-y-4">
+                                <div id="pathway-icon-container-teachers" class="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-350 bg-slate-100 text-slate-800 mb-4">
+                                    <i data-lucide="users" class="w-5 h-5"></i>
+                                </div>
+                                <h4 id="pathway-title-teachers" class="text-lg font-black tracking-tight text-slate-900 transition-colors duration-200">Вчителі</h4>
+                                <p id="pathway-desc-teachers" class="text-xs leading-relaxed font-semibold text-slate-500 transition-colors duration-200">
+                                    Підвищуйте кваліфікацію та отримуйте доступ до освітніх ресурсів V4, лекцій, семінарів та методик неформальної фізичної освіти.
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span id="pathway-btn-span-teachers" class="text-xs font-black inline-flex items-center gap-1 transition-colors duration-200 text-[#1e3a8a]">
+                                    Переглянути <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hidden panel blocks with personalized content -->
+                    <div id="pathway-content-container" class="mt-6 border border-slate-200/80 bg-slate-50 rounded-[2rem] overflow-hidden shadow-xs transition-all duration-500 hidden">
+                        
+                        <!-- Content for Students -->
+                        <div id="pathway-content-students" class="hidden p-6 sm:p-8 space-y-6">
+                            <div class="flex items-center gap-3 border-l-4 border-[#1e3a8a] pl-4">
+                                <h4 class="text-xl font-black text-slate-900 tracking-tight">Для студентів</h4>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <!-- Student Item 1 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="trophy" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Фізичні турніри</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Організація та проведення регіональних та міжнародних турнірів з фізики для школярів.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Student Item 2 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="video" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">STEM-відео</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Створення науково-популярних відео для популяризації STEM-освіти.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Student Item 3 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="sparkles" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Неформальна освіта</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Курси Міжнародної Cisco Networking Academy, що сприяють професійному розвитку.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Student Item 4 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="globe" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Міжнародні ініціативи</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Досвід співробітництва з студентськими організаціями країн V4.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-center pt-2">
+                                <button onclick="triggerToast('Вашу заявку прийнято! Ви стали учасником проєкту.')" class="bg-[#1e3a8a] hover:bg-blue-800 text-white font-extrabold text-sm px-8 py-3.5 rounded-full transition-all shadow-md shadow-blue-900/12 inline-flex items-center gap-2 cursor-pointer hover:scale-105">
+                                    Стати учасником проєкту
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Content for High Schoolers -->
+                        <div id="pathway-content-schoolers" class="hidden p-6 sm:p-8 space-y-6">
+                            <div class="flex items-center gap-3 border-l-4 border-[#1e3a8a] pl-4">
+                                <h4 class="text-xl font-black text-slate-900 tracking-tight">Для старшокласників</h4>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <!-- Schooler Item 1 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="trophy" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Фізичні турніри</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Участь у регіональних та міжнародних командних турнірах з фізики для старшокласників.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Schooler Item 2 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="video" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Навчальні вебінари</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Розв'язування турнірних задач з фізики у межах підготовки до міжнародних конкурсів.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Schooler Item 3 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="compass" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Освітні екскурсії</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Супровід в музей науки та демонстрація лабораторного обладнання університету.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Schooler Item 4 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="graduation-cap" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Стати студентом</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Консультації щодо вибору освітніх програм під час вступу на фізичний факультет.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-center pt-2">
+                                <button onclick="triggerToast('Вашу заявку прийнято! Ви стали учасником проєкту.')" class="bg-[#1e3a8a] hover:bg-blue-800 text-white font-extrabold text-sm px-8 py-3.5 rounded-full transition-all shadow-md shadow-blue-900/12 inline-flex items-center gap-2 cursor-pointer hover:scale-105">
+                                    Стати учасником проєкту
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Content for Teachers -->
+                        <div id="pathway-content-teachers" class="hidden p-6 sm:p-8 space-y-6">
+                            <div class="flex items-center gap-3 border-l-4 border-[#1e3a8a] pl-4">
+                                <h4 class="text-xl font-black text-slate-900 tracking-tight">Для вчителів</h4>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <!-- Teacher Item 1 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="book-open" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Лекції з неформальної освіти</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Ознайомлення з сучасними європейськими практиками та досвідом країн V4.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Teacher Item 2 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="award" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Підвищення кваліфікації</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Участь у безкоштовних тренінгах з отриманням сертифікатів міжнародного освітнього проєкту.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Teacher Item 3 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="compass" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Освітні екскурсії</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Дієві практики неформальної освіти в університетському STEM-середовищі.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Teacher Item 4 -->
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                                    <div>
+                                        <div class="w-9 h-9 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center mb-3">
+                                            <i data-lucide="file-text" class="w-4.5 h-4.5"></i>
+                                        </div>
+                                        <h5 class="text-xs font-extrabold text-[#111827] uppercase tracking-wide mb-1.5">Навчальні матеріали</h5>
+                                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed">
+                                            Методична підтримка учнівських командних змагань з фізики та неформальних занять.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-center pt-2">
+                                <button onclick="triggerToast('Вашу заявку прийнято! Ви стали учасником проєкту.')" class="bg-[#1e3a8a] hover:bg-blue-800 text-white font-extrabold text-sm px-8 py-3.5 rounded-full transition-all shadow-md shadow-blue-900/12 inline-flex items-center gap-2 cursor-pointer hover:scale-105">
+                                    Стати учасником проєкту
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. SECTION - МОЖЛИВОСТІ (Opportunities sections containing subcategories) -->
+                <section id="opportunities" class="bg-white rounded-3xl border border-slate-200/60 p-6 sm:p-8 space-y-8 scroll-mt-20">
+                    <div class="border-b border-slate-100 pb-4">
+                        <div class="flex items-center gap-2 text-emerald-600 mb-1">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            <span class="text-xs font-black uppercase tracking-wider">Ключові напрямки хабу</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 tracking-tight font-sans">Можливості та освітні треки</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                            Широкий спектр інструментів для неформальної та додаткової освіти.
+                        </p>
+                    </div>
+
+                    <!-- Tournaments section -->
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                            <i data-lucide="trophy" class="w-4 h-4 text-amber-505"></i> Наукові заходи та олімпіади
+                        </h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <!-- Tournament Card 1 -->
+                            <div class="border border-slate-200 rounded-2xl p-5 space-y-4 hover:border-slate-300 transition-all flex flex-col justify-between">
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-[9px] font-black uppercase bg-brand-50 text-brand-900 border border-brand-100 px-2.5 py-0.5 rounded-md">Міжнародне змагання</span>
+                                        <span class="text-[10px] text-slate-400 font-bold flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5"></i> Щорічно</span>
+                                    </div>
+                                    <h5 class="font-extrabold text-slate-900 text-lg">Náboj Physics</h5>
+                                    <p class="text-xs text-slate-500 leading-relaxed">
+                                        Швидкоплинний командний кубок з вирішення логічних та творчих фізичних завдань у форматі реального часу. Наша платформа допомагає об'єднати школи та підготувати олімпіадні команди.
+                                    </p>
+                                </div>
+                                <button onclick="triggerToast('Матеріали завантаження додано до списку внизу!')" class="w-full text-center py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 text-xs font-bold rounded-xl border border-slate-200 transition-colors">
+                                    Архів завдань і підготовка
+                                </button>
+                            </div>
+
+                            <!-- Tournament Card 2 -->
+                            <div class="border border-slate-200 rounded-2xl p-5 space-y-4 hover:border-slate-300 transition-all flex flex-col justify-between">
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-[9px] font-black uppercase bg-emerald-50 text-emerald-800 border border-emerald-100 px-2.5 py-0.5 rounded-md">Прага - Чехія</span>
+                                        <span class="text-[10px] text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="plane" class="w-3 shadow-2xs"></i> Поїздка</span>
+                                    </div>
+                                    <h5 class="font-extrabold text-slate-900 text-lg">Командний кубок Fyziklání</h5>
+                                    <p class="text-xs text-slate-500 leading-relaxed">
+                                        Участь талановитої молоді України у празькому турнірі від Карлового Університету. Ознайомтесь із реальними фотозвітами наших поїздок.
+                                    </p>
+                                    
+                                    <!-- Photo Gallery triggers for lightbox -->
+                                    <div class="flex gap-2">
+                                        <div class="cursor-pointer group flex-1 aspect-video relative rounded-lg overflow-hidden border border-slate-100" onclick="openGallery(0)">
+                                            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=150" alt="Excursion" class="w-full h-full object-cover group-hover:scale-105 transition-all">
+                                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                                        </div>
+                                        <div class="cursor-pointer group flex-1 aspect-video relative rounded-lg overflow-hidden border border-slate-100" onclick="openGallery(1)">
+                                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=150" alt="Lab session" class="w-full h-full object-cover group-hover:scale-105 transition-all">
+                                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                                        </div>
+                                        <div class="cursor-pointer flex-1 aspect-video relative rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors border border-dashed border-slate-200 flex flex-col items-center justify-center text-[9px] font-bold text-slate-500 gap-0.5" onclick="openGallery(2)">
+                                            <i data-lucide="images" class="w-3.5 h-3.5"></i>
+                                            <span>+5 photo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button onclick="openGallery(0)" class="w-full text-center py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 text-xs font-bold rounded-xl border border-slate-200 transition-colors">
+                                    Переглянути фотоекскурсії
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Online lectures and webinars section (With dynamic JS tabs selection) -->
+                    <div class="space-y-4 pt-2">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                                <i data-lucide="video" class="w-4 h-4 text-brand-700"></i> Цикл онлайн-лекцій Хабу
+                            </h4>
+                            
+                            <!-- Tab controls -->
+                            <div class="flex bg-slate-100 p-1 rounded-xl text-[11px] font-bold gap-1 self-start sm:self-auto border border-slate-200/50">
+                                <button id="lecture-tab-all" onclick="filterLectures('all')" class="px-3.5 py-1.5 rounded-lg transition-all bg-white text-slate-900 shadow-xs cursor-pointer">Всі</button>
+                                <button id="lecture-tab-students" onclick="filterLectures('students')" class="px-3.5 py-1.5 rounded-lg transition-all text-slate-500 hover:text-slate-900 cursor-pointer">Учням</button>
+                                <button id="lecture-tab-teachers" onclick="filterLectures('teachers')" class="px-3.5 py-1.5 rounded-lg transition-all text-slate-500 hover:text-slate-900 cursor-pointer">Вчителям</button>
+                            </div>
+                        </div>
+
+                        <!-- Lectures list grid (Fully functional via JavaScript) -->
+                        <div id="lectures-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            <!-- Lecture Node 1 -->
+                            <div class="lecture-card bg-slate-50 border border-slate-200/60 rounded-2xl overflow-hidden hover:shadow-xs transition-all flex flex-col justify-between" data-audience="students">
+                                <div class="aspect-video relative bg-slate-900 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=400" alt="Lecture Mechanics" class="w-full h-full object-cover opacity-65">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <button onclick="playLecture('Основи механіки та нестандартні підходи', 'д.ф.-м.н. доц. Ковальчук П. А.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')" class="w-10 h-10 bg-slate-950/80 rounded-full flex items-center justify-center text-white hover:bg-brand-900 hover:scale-105 transition-all shadow-md">
+                                            <i data-lucide="play" fill="white" class="w-4.5 h-4.5 ml-0.5"></i>
+                                        </button>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 text-[9px] font-bold bg-slate-900/80 text-white px-2 py-0.5 rounded">45 хв</span>
+                                </div>
+                                <div class="p-3.5 space-y-2 flex-grow flex flex-col justify-between">
+                                    <div class="space-y-1.5">
+                                        <span class="text-[8px] font-black uppercase px-2 py-0.5 rounded bg-blue-100 text-brand-900">Для учнів</span>
+                                        <h6 class="font-bold text-slate-900 text-xs line-clamp-2 leading-tight">Основи механіки та нестандартні підходи</h6>
+                                    </div>
+                                    <div class="flex justify-between items-center pt-2.5 mt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-medium">
+                                        <span>доц. Ковальчук П. А.</span>
+                                        <span class="bg-indigo-50 text-indigo-700 px-1 rounded text-[8px] uppercase font-bold">Базовий</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lecture Node 2 -->
+                            <div class="lecture-card bg-slate-50 border border-slate-200/60 rounded-2xl overflow-hidden hover:shadow-xs transition-all flex flex-col justify-between" data-audience="teachers">
+                                <div class="aspect-video relative bg-slate-900 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=400" alt="Exposition teaching" class="w-full h-full object-cover opacity-65">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <button onclick="playLecture('Демонстраційний фізичний експеримент у класі', 'проф. Ян Весели (Чехія)', 'https://www.youtube.com/embed/dQw4w9WgXcQ')" class="w-10 h-10 bg-slate-950/80 rounded-full flex items-center justify-center text-white hover:bg-brand-900 hover:scale-105 transition-all shadow-md">
+                                            <i data-lucide="play" fill="white" class="w-4.5 h-4.5 ml-0.5"></i>
+                                        </button>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 text-[9px] font-bold bg-slate-900/80 text-white px-2 py-0.5 rounded">1.2 год</span>
+                                </div>
+                                <div class="p-3.5 space-y-2 flex-grow flex flex-col justify-between">
+                                    <div class="space-y-1.5">
+                                        <span class="text-[8px] font-black uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-855">Для вчителів</span>
+                                        <h6 class="font-bold text-slate-900 text-xs line-clamp-2 leading-tight">Демонстраційний експеримент у класі</h6>
+                                    </div>
+                                    <div class="flex justify-between items-center pt-2.5 mt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-medium">
+                                        <span>проф. Ян Весели (чехія)</span>
+                                        <span class="bg-emerald-50 text-emerald-800 px-1 rounded text-[8px] uppercase font-bold">Проф</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lecture Node 3 -->
+                            <div class="lecture-card bg-slate-50 border border-slate-200/60 rounded-2xl overflow-hidden hover:shadow-xs transition-all flex flex-col justify-between" data-audience="teachers">
+                                <div class="aspect-video relative bg-slate-950 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=400" alt="Cryptography physics" class="w-full h-full object-cover opacity-65">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <button onclick="playLecture('Квантова криптографія в шкільній програмі', 'д-р наук Міхал Рудніцкі (Польща)', 'https://www.youtube.com/embed/dQw4w9WgXcQ')" class="w-10 h-10 bg-slate-950/80 rounded-full flex items-center justify-center text-white hover:bg-brand-900 hover:scale-105 transition-all shadow-md">
+                                            <i data-lucide="play" fill="white" class="w-4.5 h-4.5 ml-0.5"></i>
+                                        </button>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 text-[9px] font-bold bg-slate-900/80 text-white px-2 py-0.5 rounded">50 хв</span>
+                                </div>
+                                <div class="p-3.5 space-y-2 flex-grow flex flex-col justify-between">
+                                    <div class="space-y-1.5">
+                                        <span class="text-[8px] font-black uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-855">Для вчителів</span>
+                                        <h6 class="font-bold text-slate-900 text-xs line-clamp-2 leading-tight">Квантова криптографія в школі</h6>
+                                    </div>
+                                    <div class="flex justify-between items-center pt-2.5 mt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-medium">
+                                        <span>д-р наук М. Рудніцкі</span>
+                                        <span class="bg-emerald-50 text-emerald-855 px-1 rounded text-[8px] uppercase font-bold">Проф</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lecture Node 4 -->
+                            <div class="lecture-card bg-slate-50 border border-slate-200/60 rounded-2xl overflow-hidden hover:shadow-xs transition-all flex flex-col justify-between" data-audience="students">
+                                <div class="aspect-video relative bg-slate-900 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400" alt="Experiments" class="w-full h-full object-cover opacity-65">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <button onclick="playLecture('Термодинаміка на пальцях: прості досліди', 'к.ф.-м.н. Шевченко О. М.', 'https://www.youtube.com/embed/dQw4w9WgXcQ')" class="w-10 h-10 bg-slate-950/80 rounded-full flex items-center justify-center text-white hover:bg-brand-900 hover:scale-105 transition-all shadow-md">
+                                            <i data-lucide="play" fill="white" class="w-4.5 h-4.5 ml-0.5"></i>
+                                        </button>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 text-[9px] font-bold bg-slate-900/80 text-white px-2 py-0.5 rounded">35 хв</span>
+                                </div>
+                                <div class="p-3.5 space-y-2 flex-grow flex flex-col justify-between">
+                                    <div class="space-y-1.5">
+                                        <span class="text-[8px] font-black uppercase px-2 py-0.5 rounded bg-blue-100 text-brand-900">Для учнів</span>
+                                        <h6 class="font-bold text-slate-900 text-xs line-clamp-2 leading-tight">Термодинаміка на пальцях: досліди</h6>
+                                    </div>
+                                    <div class="flex justify-between items-center pt-2.5 mt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-medium">
+                                        <span>к.ф.-м.н. Шевченко О. М.</span>
+                                        <span class="bg-indigo-50 text-indigo-700 px-1 rounded text-[8px] uppercase font-bold">Базовий</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lecture Node 5 -->
+                            <div class="lecture-card bg-slate-50 border border-slate-200/60 rounded-2xl overflow-hidden hover:shadow-xs transition-all flex flex-col justify-between" data-audience="teachers">
+                                <div class="aspect-video relative bg-slate-900 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=400" alt="Preparation Naboj" class="w-full h-full object-cover opacity-65">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <button onclick="playLecture('Методика підготовки команд до змагань Náboj', 'координатор проєкту ТЕІБ ЛНУ', 'https://www.youtube.com/embed/dQw4w9WgXcQ')" class="w-10 h-10 bg-slate-950/80 rounded-full flex items-center justify-center text-white hover:bg-brand-900 hover:scale-105 transition-all shadow-md">
+                                            <i data-lucide="play" fill="white" class="w-4.5 h-4.5 ml-0.5"></i>
+                                        </button>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 text-[9px] font-bold bg-slate-900/80 text-white px-2 py-0.5 rounded">1.5 год</span>
+                                </div>
+                                <div class="p-3.5 space-y-2 flex-grow flex flex-col justify-between">
+                                    <div class="space-y-1.5">
+                                        <span class="text-[8px] font-black uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-855">Для вчителів</span>
+                                        <h6 class="font-bold text-slate-900 text-xs line-clamp-2 leading-tight">Методика підготовки команд Náboj</h6>
+                                    </div>
+                                    <div class="flex justify-between items-center pt-2.5 mt-2 border-t border-slate-200/40 text-[10px] text-slate-500 font-medium">
+                                        <span>Координатор ТЕІБ ЛНУ</span>
+                                        <span class="bg-emerald-50 text-emerald-855 px-1 rounded text-[8px] uppercase font-bold">Проф</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lecture Node 6 -->
+                            <div class="lecture-card bg-slate-50 border border-slate-200/60 rounded-2xl overflow-hidden hover:shadow-xs transition-all flex flex-col justify-between" data-audience="students">
+                                <div class="aspect-video relative bg-slate-950 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&q=80&w=400" alt="Olympiad solver" class="w-full h-full object-cover opacity-65">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <button onclick="playLecture('Як закохатися у вирішення олімпіадних задач', 'збірна призерів Fyziklání 2026', 'https://www.youtube.com/embed/dQw4w9WgXcQ')" class="w-10 h-10 bg-slate-950/80 rounded-full flex items-center justify-center text-white hover:bg-brand-900 hover:scale-105 transition-all shadow-md">
+                                            <i data-lucide="play" fill="white" class="w-4.5 h-4.5 ml-0.5"></i>
+                                        </button>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 text-[9px] font-bold bg-slate-900/80 text-white px-2 py-0.5 rounded">60 хв</span>
+                                </div>
+                                <div class="p-3.5 space-y-2 flex-grow flex flex-col justify-between">
+                                    <div class="space-y-1.5">
+                                        <span class="text-[8px] font-black uppercase px-2 py-0.5 rounded bg-blue-100 text-brand-900">Для учнів</span>
+                                        <h6 class="font-bold text-slate-900 text-xs line-clamp-2 leading-tight">Закохатися у розв'язання складних задач</h6>
+                                    </div>
+                                    <div class="flex justify-between items-center pt-2.5 mt-2 border-t border-slate-200/60 text-[10px] text-slate-500 font-medium">
+                                        <span>Призери Fyziklání 2026</span>
+                                        <span class="bg-indigo-50 text-indigo-700 px-1 rounded text-[8px] uppercase font-bold">Легкий</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resources, Materials & Downloads Sub-section -->
+                    <div id="for-teachers" class="space-y-4 pt-4 border-t border-slate-100">
+                        <div class="flex items-center gap-1.5">
+                            <i data-lucide="file-text" class="w-4 h-4 text-brand-900"></i>
+                            <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">
+                                Методичні розробки та роздаткові матеріали
+                            </h4>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Download Node 1 -->
+                            <div class="flex items-center justify-between p-4 bg-slate-50 border border-slate-200/50 rounded-2xl hover:border-brand-300 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-brand-50 text-brand-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="book-open-check" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-900 uppercase">Олімпіадний путівник ТЕІБ</h5>
+                                        <p class="text-[9px] text-slate-404 font-bold">Збірки креативних задач (PDF)</p>
+                                    </div>
+                                </div>
+                                <button onclick="triggerDownload('Олімпіадний путівник ТЕІБ.pdf')" class="p-2 hover:bg-white rounded-lg text-slate-404 hover:text-brand-900 border border-transparent hover:border-slate-200 transition-all cursor-pointer">
+                                    <i data-lucide="download" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+
+                            <!-- Download Node 2 -->
+                            <div class="flex items-center justify-between p-4 bg-slate-50 border border-slate-200/50 rounded-2xl hover:border-emerald-300 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-emerald-50 text-emerald-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="file-video" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-900 uppercase">Посібник «Позитивний заряд»</h5>
+                                        <p class="text-[9px] text-slate-404 font-bold">Методичні плани для вчителів (PDF)</p>
+                                    </div>
+                                </div>
+                                <button onclick="triggerDownload('Посібник Позитивний заряд.pdf')" class="p-2 hover:bg-white rounded-lg text-slate-404 hover:text-emerald-705 border border-transparent hover:border-slate-200 transition-all cursor-pointer">
+                                    <i data-lucide="download" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Web simulations panel toggle -->
+                        <div class="pt-2">
+                            <button onclick="toggleSimulations()" class="w-full text-left p-4 bg-emerald-50/50 border border-emerald-150 rounded-2xl flex items-center justify-between text-emerald-800 hover:bg-emerald-50 transition-colors group">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 bg-white border border-emerald-100 rounded-xl flex items-center justify-center text-emerald-700 group-hover:scale-105 transition-transform shadow-3xs">
+                                        <i data-lucide="network" class="w-4.5 h-4.5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-black uppercase text-slate-850 leading-none">Корисні інтерактивні посилання</h5>
+                                        <p class="text-[10px] text-slate-500 mt-1 leading-none">Клацніть для переліку цифрових кабінетів та симуляцій</p>
+                                    </div>
+                                </div>
+                                <i id="sim-arrow" data-lucide="chevron-down" class="w-4 h-4 text-slate-405 transition-transform"></i>
+                            </button>
+                            
+                            <!-- Hidden panel content -->
+                            <div id="simulations-panel" class="hidden p-5 bg-slate-50 border border-slate-200/50 rounded-b-2xl -mt-2.5 border-t-0 space-y-3 shadow-inner">
+                                <p class="text-[11px] font-bold text-slate-404 uppercase tracking-widest">Перевірена добірка ресурсів для уроку:</p>
+                                <a href="https://phet.colorado.edu/uk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-xs text-brand-700 hover:underline bg-white p-2.5 rounded-xl border border-slate-100 group shadow-3xs">
+                                    <span class="font-semibold">PhET: Віртуальні інтерактивні симуляції з фізики (Колорадо)</span>
+                                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-300 group-hover:text-brand-900 transition-colors"></i>
+                                </a>
+                                <a href="https://physics.naboj.org/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-xs text-brand-700 hover:underline bg-white p-2.5 rounded-xl border border-slate-100 group shadow-3xs">
+                                    <span class="font-semibold">Офіційний архів змагань Náboj Physics</span>
+                                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-300 group-hover:text-brand-900 transition-colors"></i>
+                                </a>
+                                <a href="https://fykos.org/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-xs text-brand-700 hover:underline bg-white p-2.5 rounded-xl border border-slate-100 group shadow-3xs">
+                                    <span class="font-semibold">Співтовариство FYKOS: задачі та фізична база</span>
+                                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-300 group-hover:text-brand-900 transition-colors"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. SECTION - ПОДІЇ ТА МОЖЛИВОСТІ (Interactive twin timelines) -->
+                <section id="events" class="bg-white rounded-3xl border border-slate-200/60 p-6 sm:p-8 space-y-8 scroll-mt-20">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-104 pb-6">
+                        <div class="text-left space-y-1">
+                            <div class="flex items-center gap-2 text-brand-900">
+                                <i data-lucide="calendar" class="w-5 h-5 text-[#1e3a8a]"></i>
+                                <span class="text-xs font-black uppercase tracking-wider">Розвиток та хроніка</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 tracking-tight">Події та можливості</h3>
+                            <p class="text-xs sm:text-sm text-slate-500">
+                                Слідкуйте за розвитком у нашому просторі через хронологію видатних досягнень та календар реєстрацій.
+                            </p>
+                        </div>
+                        
+                        <!-- Timeline filters -->
+                        <div class="flex flex-wrap gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200/50 self-start md:self-end">
+                            <button id="timeline-filter-all" onclick="filterTimeline('all')" class="px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all bg-white text-slate-900 shadow-3xs cursor-pointer">Усі</button>
+                            <button id="timeline-filter-students" onclick="filterTimeline('students')" class="px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all text-slate-500 hover:text-slate-900 cursor-pointer">Для учнів</button>
+                            <button id="timeline-filter-teachers" onclick="filterTimeline('teachers')" class="px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all text-slate-500 hover:text-slate-900 cursor-pointer">Для вчителів</button>
+                        </div>
+                    </div>
+
+                    <!-- Twin Tracks timelines (Grid columns) -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        
+                        <!-- Track A: Chronography of Past Accomplishments (Хроніка подій) -->
+                        <div class="bg-slate-50/70 border border-slate-150/70 rounded-2xl p-5 space-y-6">
+                            <div class="flex items-center gap-3 border-b border-slate-200/50 pb-3">
+                                <div class="w-9 h-9 bg-brand-50 text-brand-900 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="history" class="w-4.5 h-4.5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-slate-805 text-base leading-tight">Хроніка подій</h4>
+                                    <p class="text-[9px] text-[#1e3a8a] font-extrabold uppercase mt-0.5">Ключові досягнуті віхи</p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline items list -->
+                            <div class="relative border-l border-dashed border-brand-200 pl-5 ml-2.5 space-y-6">
+                                <!-- Node 1 -->
+                                <div class="timeline-item relative space-y-2 group" data-audience="teachers">
+                                    <span class="absolute -left-[27px] top-1.5 w-3.5 h-3.5 bg-[#1e3a8a] border-2 border-white rounded-full group-hover:scale-125 transition-transform shadow-xs"></span>
+                                    <div class="bg-white border border-slate-200/60 p-4 rounded-xl shadow-3xs group-hover:border-blue-300 transition-colors cursor-pointer" onclick="openTimelineDetail('Старт ініціативи в УжНУ', '15 Вересня 2023', 'Міжнародна зустріч у ЛНУ та УжНУ разом з чеськими та словацькими амбасадорами для погодження навчальних програм неформального навчання старшокласників та спільної координації розвитку.', 'Вчителі')">
+                                        <p class="text-[8px] font-black uppercase tracking-wider text-[#1e3a8a]">15 вересня 2023</p>
+                                        <h5 class="text-xs font-black text-slate-900 mt-1 group-hover:text-amber-500 transition-colors">Старт ініціативи в УжНУ</h5>
+                                        <p class="text-[10px] text-slate-400 mt-0.5 line-clamp-2">Зустріч з координаторами проєкту для створення неформального простору...</p>
+                                    </div>
+                                </div>
+
+                                <!-- Node 2 -->
+                                <div class="timeline-item relative space-y-2 group" data-audience="students">
+                                    <span class="absolute -left-[27px] top-1.5 w-3.5 h-3.5 bg-[#1e3a8a] border-2 border-white rounded-full group-hover:scale-125 transition-transform shadow-xs"></span>
+                                    <div class="bg-white border border-slate-200/60 p-4 rounded-xl shadow-3xs group-hover:border-blue-300 transition-colors cursor-pointer" onclick="openTimelineDetail('Залучення кращих ліцеїв Закарпаття', '10 Жовтня 2023', 'Підписання протоколів про співпрацю з 15 ключовими громадами та освітніми ліцеями Закарпаття для пілотного тестування експериментів.', 'Учні')">
+                                        <p class="text-[8px] font-black uppercase tracking-wider text-[#1e3a8a]">10 жовтня 2023</p>
+                                        <h5 class="text-xs font-black text-slate-900 mt-1 group-hover:text-amber-500 transition-colors">Залучення кращих ліцеїв</h5>
+                                        <p class="text-[10px] text-slate-400 mt-0.5 line-clamp-2">Офіційне укладення протоколів партнерства з ліцеями та школами...</p>
+                                    </div>
+                                </div>
+
+                                <!-- Node 3 -->
+                                <div class="timeline-item relative space-y-2 group" data-audience="students">
+                                    <span class="absolute -left-[27px] top-1.5 w-3.5 h-3.5 bg-[#1e3a8a] border-2 border-white rounded-full group-hover:scale-125 transition-transform shadow-xs"></span>
+                                    <div class="bg-white border border-slate-200/60 p-4 rounded-xl shadow-3xs group-hover:border-blue-300 transition-colors cursor-pointer" onclick="openTimelineDetail('Освітня поїздка до Праги', '15-18 Жовтня 2023', 'Делегація вчителів та обдарованих школярів відвідала Карлів Університет, вивчила нові лабораторні зразки та поспілкувалася з організаторами FYKOS.', 'Учні')">
+                                        <p class="text-[8px] font-black uppercase tracking-wider text-[#1e3a8a]">15-18 жовтня 2023</p>
+                                        <h5 class="text-xs font-black text-slate-900 mt-1 group-hover:text-amber-500 transition-colors">Освітня поїздка до Праги</h5>
+                                        <p class="text-[10px] text-slate-400 mt-0.5 line-clamp-2">Візит українських дітей і вчителів на спільні чесько-українські семінари...</p>
+                                    </div>
+                                </div>
+
+                                <!-- Node 4 -->
+                                <div class="timeline-item relative space-y-2 group" data-audience="teachers">
+                                    <span class="absolute -left-[27px] top-1.5 w-3.5 h-3.5 bg-[#1e3a8a] border-2 border-white rounded-full group-hover:scale-125 transition-transform shadow-xs"></span>
+                                    <div class="bg-white border border-slate-200/60 p-4 rounded-xl shadow-3xs group-hover:border-blue-300 transition-colors cursor-pointer" onclick="openTimelineDetail('Посібник «Позитивний заряд фізики»', '24 Листопада 2023', 'Офіційне завершення роботи, тиражування та відправка методичного збірника експериментів для вчителів природничих предметів.', 'Вчителі')">
+                                        <p class="text-[8px] font-black uppercase tracking-wider text-[#1e3a8a]">24 листопада 2023</p>
+                                        <h5 class="text-xs font-black text-slate-900 mt-1 group-hover:text-amber-500 transition-colors">Посібник «Позитивний заряд фізики»</h5>
+                                        <p class="text-[10px] text-slate-400 mt-0.5 line-clamp-2">Дистрибуція та сертифіковані вебінари-презентації нової книги посібника...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Track B: Next Open Opportunities (Відкриті можливості) -->
+                        <div class="bg-slate-50/70 border border-slate-150/70 rounded-2xl p-5 space-y-6">
+                            <div class="flex items-center gap-3 border-b border-slate-200/50 pb-3">
+                                <div class="w-9 h-9 bg-emerald-50 text-emerald-850 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="sparkles" class="w-4.5 h-4.5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-slate-805 text-base leading-tight">Відкриті можливості</h4>
+                                    <p class="text-[9px] text-emerald-700 font-extrabold uppercase mt-0.5">Приєднуйтесь до подій у каліндарі</p>
+                                </div>
+                            </div>
+
+                            <!-- Calendar timeline items list -->
+                            <div class="relative border-l border-dashed border-emerald-300 pl-5 ml-2.5 space-y-6">
+                                <!-- Opportunity Node 1 -->
+                                <div class="timeline-item relative space-y-2 group" data-audience="students">
+                                    <span class="absolute -left-[27px] top-1.5 w-3.5 h-3.5 bg-emerald-600 border-2 border-white rounded-full group-hover:scale-125 transition-transform shadow-xs"></span>
+                                    <div class="bg-white border border-slate-200/60 p-4 rounded-xl shadow-3xs group-hover:border-emerald-300 transition-colors cursor-pointer" onclick="openTimelineDetail('Лабораторні інтенсиви у хабах', 'Травень-Червень 2026', 'Набір на 4-денні фізичні сесії в оптичних та мікроелектронних лабораторіях кафедри для 8-11 класів. Кількість місць обмежена.', 'Учні')">
+                                        <p class="text-[8px] font-black uppercase tracking-wider text-emerald-600">Травень-червень 2026</p>
+                                        <h5 class="text-xs font-black text-slate-900 mt-1 group-hover:text-amber-500 transition-colors">Лабораторні інтенсиви в ЛНУ</h5>
+                                        <p class="text-[10px] text-slate-400 mt-0.5 line-clamp-2">Робота з реальними дифракційними спектрометрами та платами Arduino...</p>
+                                    </div>
+                                </div>
+
+                                <!-- Opportunity Node 2 -->
+                                <div class="timeline-item relative space-y-2 group" data-audience="teachers">
+                                    <span class="absolute -left-[27px] top-1.5 w-3.5 h-3.5 bg-emerald-600 border-2 border-white rounded-full group-hover:scale-125 transition-transform shadow-xs"></span>
+                                    <div class="bg-white border border-slate-200/60 p-4 rounded-xl shadow-3xs group-hover:border-emerald-300 transition-colors cursor-pointer" onclick="openTimelineDetail('Підсумковий вебінар V4-методики', 'Листопад 2026', 'Онлайн-семінар за участю провідних методистів Чехії та Словаччини для впровадження неформальних кабінетів у школах України.', 'Вчителі')">
+                                        <p class="text-[8px] font-black uppercase tracking-wider text-emerald-600">Листопад 2026</p>
+                                        <h5 class="text-xs font-black text-slate-900 mt-1 group-hover:text-amber-500 transition-colors">Підсумковий вебінар методик V4</h5>
+                                        <p class="text-[10px] text-slate-400 mt-0.5 line-clamp-2">Реєстрація на безкоштовні онлайн сесії та отримання посібників...</p>
+                                    </div>
+                                </div>
+
+                                <!-- Opportunity Node 3 -->
+                                <div class="timeline-item relative space-y-2 group" data-audience="students">
+                                    <span class="absolute -left-[27px] top-1.5 w-3.5 h-3.5 bg-emerald-600 border-2 border-white rounded-full group-hover:scale-125 transition-transform shadow-xs"></span>
+                                    <div class="bg-white border border-slate-200/60 p-4 rounded-xl shadow-3xs group-hover:border-emerald-300 transition-colors cursor-pointer" onclick="openTimelineDetail('Осінній онлайн-турнір хабу', 'Жовтень 2026', 'Командне змагання з призовим фондом, розроблене за моделлю Náboj, для перевірки логічного та технічного мислення.', 'Учні')">
+                                        <p class="text-[8px] font-black uppercase tracking-wider text-emerald-600">Жовтень 2026</p>
+                                        <h5 class="text-xs font-black text-slate-900 mt-1 group-hover:text-amber-505 transition-colors">Осінній онлайн-турнір хабу</h5>
+                                        <p class="text-[10px] text-slate-400 mt-0.5 line-clamp-2">Старт реєстрації команд шкіл середньої та старшої класифікації...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 6. SECTION - РЕЗУЛЬТАТИ (#results section with stats and quotes) -->
+                <section id="results" class="bg-white rounded-3xl border border-slate-200/60 p-6 sm:p-8 space-y-8 scroll-mt-20">
+                    <div class="border-b border-slate-100 pb-4">
+                        <div class="flex items-center gap-1.5 text-amber-505 mb-1">
+                            <i data-lucide="award" class="w-5 h-5 text-amber-500"></i>
+                            <span class="text-xs font-black uppercase tracking-wider">Ефективність</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 tracking-tight">Вплив та досягнення проєкту</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                            Кількісні результати впровадження та підтримки Вишеградського Фонду.
+                        </p>
+                    </div>
+
+                    <!-- Stats grid layout -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="bg-slate-50 border border-slate-200/50 p-4 rounded-2xl">
+                            <h4 class="text-3xl font-black text-brand-900">300+</h4>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-1">залучено учнів</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200/50 p-4 rounded-2xl">
+                            <h4 class="text-3xl font-black text-emerald-600">45+</h4>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-1">навчено вчителів</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200/50 p-4 rounded-2xl">
+                            <h4 class="text-3xl font-black text-amber-500">12</h4>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-1">команд у кубках</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200/50 p-4 rounded-2xl">
+                            <h4 class="text-3xl font-black text-rose-600">5+</h4>
+                            <p class="text-[10px] font-bold text-slate-405 uppercase tracking-wider mt-1">країн-учасниць</p>
+                        </div>
+                    </div>
+
+                    <!-- Reviews / Quotes -->
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">Відгуки учасників фізичних вебінарів</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-slate-50 border border-slate-150 p-4 rounded-2xl relative">
+                                <span class="text-3xl font-serif text-slate-200 absolute top-2 left-2 leading-none">“</span>
+                                <p class="text-xs text-slate-500 leading-relaxed italic pl-3.5 relative z-10 font-medium font-sans">
+                                    Náboj Physics довів, що фізика може бути захоплюючим командним спортом з миттєвим результатом. Обмін ідеями з викладачами з Чехії дав величезний імпульс.
+                                </p>
+                                <div class="pl-3.5 mt-3 pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-[10px] font-bold">
+                                    <span class="text-slate-705 font-sans">Максим, ліцеїст</span>
+                                    <span class="bg-blue-100 text-brand-900 px-2 py-0.2 rounded-full text-[8px] font-mono">Учасник Náboj</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 border border-slate-150 p-4 rounded-2xl relative">
+                                <span class="text-3xl font-serif text-slate-200 absolute top-2 left-2 leading-none">“</span>
+                                <p class="text-xs text-slate-500 leading-relaxed italic pl-3.5 relative z-10 font-medium font-sans">
+                                    Отримані за планом проєкту ТЕІБ методички та лабораторні Arduino змінили ставлення учнів до експерименту. Діти самі просяться затримуватись після фізики.
+                                </p>
+                                <div class="pl-3.5 mt-3 pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-[10px] font-bold font-sans">
+                                    <span class="text-slate-705">Ірина Петрівна, вчитель</span>
+                                    <span class="bg-emerald-100 text-emerald-855 px-2 py-0.2 rounded-full text-[8px] font-mono">Спікер вебінару</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- ==================== RIGHT COLUMN: SYSTEM-NEWS FEED PANEL (WORDPRESS SIDEBAR MODEL - 25% WIDTH) ==================== -->
+            <aside class="lg:col-span-4 space-y-6">
+                
+                <div class="bg-white border border-slate-200/70 rounded-3xl p-5 sm:p-6 space-y-5 lg:sticky lg:top-24 shadow-3xs">
+                    
+                    <!-- Search widget panel (Filter JS enabled) -->
+                    <div class="space-y-2 pb-4 border-b border-slate-150">
+                        <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-1.5">
+                            <i data-lucide="search" class="w-4 h-4 text-brand-900"></i> Рубрикатор публікацій
+                        </h4>
+                        <div class="relative">
+                            <input 
+                              id="sidebar-search-input" 
+                              type="text" 
+                              oninput="filterSidebarNews(this.value)" 
+                              placeholder="Введіть ключове слово..." 
+                              class="w-full text-xs bg-slate-50 border border-slate-200 focus:border-brand-900 focus:bg-white rounded-xl py-2.5 pl-3.5 pr-10 outline-none transition-all placeholder:text-slate-400 font-medium"
+                            />
+                            <div class="absolute right-3.5 top-2.5 text-slate-400">
+                                <i data-lucide="search" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actual real-time News feed listing -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                            <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-1.5">
+                                <i data-lucide="newspaper" class="w-4 h-4 text-brand-900"></i> Останні новини кафедри
+                            </h4>
+                            <button id="reset-search-btn" onclick="resetSidebarSearch()" class="text-[9px] font-bold text-rose-600 hover:underline hidden">
+                                Скинути
+                            </button>
+                        </div>
+
+                        <!-- Scrollable news wrapper -->
+                        <div id="sidebar-news-list" class="space-y-3.5 max-h-[360px] overflow-y-auto pr-1 custom-scrollbar">
+                            
+                            <!-- News 1 -->
+                            <div class="news-item group flex gap-3 text-left p-1 rounded-xl transition-all hover:bg-slate-50 cursor-pointer" onclick="showNewsAlert('Поїздка до Праги 2026')">
+                                <div class="w-9 h-9 bg-brand-50 text-brand-900 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-brand-900 group-hover:text-white transition-all">
+                                    <i data-lucide="trophy" class="w-4.5 h-4.5"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between text-[9px] text-slate-405 font-bold">
+                                        <span>15 жовт, 2026</span>
+                                        <span class="text-brand-900 bg-brand-50 px-1 rounded">Звіти</span>
+                                    </div>
+                                    <h5 class="news-title font-bold text-xs text-[#1e3a8a] group-hover:text-amber-500 leading-snug transition-colors truncate mt-0.5">Поїздка до Праги Fyziklání</h5>
+                                    <p class="news-excerpt text-[10px] text-slate-500 line-clamp-2 leading-snug">Здобуто призові європейські місця за координації партнерів України.</p>
+                                </div>
+                            </div>
+
+                            <!-- News 2 -->
+                            <div class="news-item group flex gap-3 text-left p-1 rounded-xl transition-all hover:bg-slate-50 cursor-pointer" onclick="showNewsAlert('Неформальні методики')">
+                                <div class="w-9 h-9 bg-emerald-50 text-emerald-800 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                    <i data-lucide="sparkles" class="w-4.5 h-4.5"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between text-[9px] text-slate-405 font-bold">
+                                        <span>10 жовт, 2026</span>
+                                        <span class="text-emerald-800 bg-emerald-50 px-1 rounded">Освіта</span>
+                                    </div>
+                                    <h5 class="news-title font-bold text-xs text-[#1e3a8a] group-hover:text-amber-500 leading-snug transition-colors truncate mt-0.5 font-sans">Впровадження неформальних методик</h5>
+                                    <p class="news-excerpt text-[10px] text-slate-500 line-clamp-2 leading-snug font-sans">Понад 20 ліцеїв країни приєдналися для оновлення експериментів у класах.</p>
+                                </div>
+                            </div>
+
+                            <!-- News 3 -->
+                            <div class="news-item group flex gap-3 text-left p-1 rounded-xl transition-all hover:bg-slate-50 cursor-pointer" onclick="showNewsAlert('Міжнародний вебінар в ЛНУ')">
+                                <div class="w-9 h-9 bg-purple-50 text-purple-750 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                                    <i data-lucide="video" class="w-4.5 h-4.5"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between text-[9px] text-slate-405 font-bold">
+                                        <span>28 вер, 2026</span>
+                                        <span class="text-purple-800 bg-purple-50 px-1 rounded font-mono">Вебінари</span>
+                                    </div>
+                                    <h5 class="news-title font-bold text-xs text-[#1e3a8a] group-hover:text-amber-500 leading-snug transition-colors truncate mt-0.5 font-sans">Міжнародний науковий вебінар</h5>
+                                    <p class="news-excerpt text-[10px] text-slate-500 line-clamp-2 leading-snug font-sans">Фахівці V4 (Польща, Словаччина, Угорщина) обмінялися практиками.</p>
+                                </div>
+                            </div>
+
+                            <!-- News 4 -->
+                            <div class="news-item group flex gap-3 text-left p-1 rounded-xl transition-all hover:bg-slate-50 cursor-pointer" onclick="showNewsAlert('Нові публікації ТЕІБ')">
+                                <div class="w-9 h-9 bg-amber-50 text-amber-800 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                                    <i data-lucide="file-text" class="w-4.5 h-4.5"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between text-[9px] text-slate-405 font-bold">
+                                        <span>15 вер, 2026</span>
+                                        <span class="text-amber-700 bg-amber-50 px-1 rounded font-mono">Посібники</span>
+                                    </div>
+                                    <h5 class="news-title font-bold text-xs text-[#1e3a8a] group-hover:text-amber-500 leading-snug transition-colors truncate mt-0.5 font-sans animate-pulse">Збірник практичних олімпіад</h5>
+                                    <p class="news-excerpt text-[10px] text-slate-500 line-clamp-2 leading-snug font-sans">Підготовлено новий PDF-довідник тренування креативних рішень.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Search Quick categories keywords selectors -->
+                    <div class="space-y-2 pt-2 border-t border-slate-100 font-sans">
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">Рубрики публікацій</h4>
+                        <div id="categories-tabs" class="flex flex-wrap gap-1">
+                            <button onclick="setSidebarSearchKeyword('Турніри')" class="text-[9px] font-bold bg-slate-150 hover:bg-brand-50 hover:text-brand-900 transition-colors px-2 py-1.5 rounded-lg text-slate-600">Турніри</button>
+                            <button onclick="setSidebarSearchKeyword('Освіта')" class="text-[9px] font-bold bg-slate-150 hover:bg-brand-50 hover:text-brand-900 transition-colors px-2 py-1.5 rounded-lg text-slate-600">Методички</button>
+                            <button onclick="setSidebarSearchKeyword('Вебінари')" class="text-[9px] font-bold bg-slate-150 hover:bg-brand-50 hover:text-brand-900 transition-colors px-2 py-1.5 rounded-lg text-slate-600">Вебінари</button>
+                            <button onclick="setSidebarSearchKeyword('Звіти')" class="text-[9px] font-bold bg-slate-150 hover:bg-brand-50 hover:text-brand-900 transition-colors px-2 py-1.5 rounded-lg text-slate-600">Звіти V4</button>
+                        </div>
+                    </div>
+
+                    <!-- Embedded Social Feeds simulation widget -->
+                    <div class="space-y-2.5 pt-3 border-t border-slate-100 font-sans">
+                        <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-1.5">
+                            <i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i> Facebook Стрічка Хабу
+                        </h4>
+                        
+                        <div class="bg-slate-50 border border-slate-205 rounded-2xl p-4 text-center space-y-3">
+                            <div class="flex items-center gap-2.5 text-left">
+                                <div class="w-9 h-9 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-inner select-none">
+                                    Fb
+                                </div>
+                                <div class="min-w-0">
+                                    <h6 class="text-[11px] font-extrabold text-slate-900 leading-tight truncate">Хаб ТЕІБ — Фізичний куточок</h6>
+                                    <p class="text-[9px] text-blue-600 font-bold">Вподобано: 1,420 • <span class="text-slate-400 font-normal">Кафедра</span></p>
+                                </div>
+                            </div>
+                            <p class="text-[10px] text-slate-500 italic text-left leading-relaxed">
+                                Залишайтеся на зв'язку! Отримуйте анонси турнірів Náboj, дати відвідин лабораторій ЛНУ та звіти поїздок у реальному часі.
+                            </p>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-full block bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl text-xs font-extrabold transition-all shadow-md shadow-blue-600/10 text-center">
+                                Вподобати сторінку
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Permanent institution references Links list -->
+                    <div class="space-y-2 pt-2 border-t border-slate-100 font-sans">
+                        <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest">Корисні посилання</h4>
+                        <ul class="space-y-1 text-xs font-semibold text-slate-650">
+                            <li>
+                                <a href="https://teib.info" target="_blank" class="hover:text-brand-900 flex items-center justify-between py-1 group">
+                                    <span>Сайт кафедри ТЕІБ ЛНУ</span>
+                                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-900"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://physics.lnu.edu.ua" target="_blank" class="hover:text-brand-900 flex items-center justify-between py-1 group">
+                                    <span>Фізичний факультет ЛНУ</span>
+                                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-900"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- SITE FOOTER (Clean copyright representing actual status) -->
+    <footer class="bg-slate-900 text-white border-t border-slate-800 py-12 px-4 md:px-8 mt-16 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 font-sans">
+                <div class="w-8 h-8 bg-brand-800 rounded flex items-center justify-center text-white font-bold">
+                    ⚡
+                </div>
+                <div>
+                    <p class="font-bold text-slate-200">Освітній Хаб ТЕІБ ЛНУ</p>
+                    <p class="text-[10px]">© 2026. Проєкт виконується за підтримки International Visegrad Fund</p>
+                </div>
+            </div>
+            <p class="text-center md:text-right max-w-sm text-[10px] leading-relaxed font-sans">
+                Зміст публікацій відображає позицію авторів та не обов'язково представляє офіційне бачення Міжнародного Вишеградського Фонду.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- ==================== INTERACTIVE WINDOW MODALS SYSTEM ==================== -->
+
+    <!-- Modal 1: Video Player Modal -->
+    <div id="video-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl relative border border-slate-200">
+            <button onclick="closeVideo()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900/10 hover:bg-slate-900/20 text-slate-800 flex items-center justify-center transition-colors cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="aspect-video bg-black relative font-mono">
+                <!-- Custom simulated player layout with dynamic visual state -->
+                <div id="simulated-player" class="absolute inset-0 flex flex-col justify-between p-4 bg-slate-950 text-white text-[10px]">
+                    <div class="flex justify-between items-center bg-black/40 p-2 rounded-lg">
+                        <span class="text-amber-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-rose-600 animate-ping"></span> Онлайн вебінар
+                        </span>
+                        <span id="video-timer" class="text-slate-400">00:00 / 45:00</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center justify-center space-y-4 py-8">
+                        <button id="player-play-btn" onclick="togglePlayerPlayState()" class="w-16 h-16 bg-brand-600 hover:bg-brand-700 text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105">
+                            <i id="play-btn-icon" data-lucide="pause" fill="white" class="translate-x-0 w-6 h-6"></i>
+                        </button>
+                        <p class="text-xs font-black text-center text-slate-300 max-w-md" id="video-lecture-name">Назва Лекції</p>
+                        <p class="text-[9px] text-[#2563eb] font-bold" id="video-lecture-speaker">Спікер</p>
+                    </div>
+
+                    <div class="space-y-2 bg-black/40 p-2.5 rounded-lg">
+                        <div class="w-full bg-slate-800 h-1 rounded-full relative overflow-hidden">
+                            <div id="video-progress" class="absolute left-0 top-0 h-full bg-brand-600 transition-all duration-300" style="width: 25%;"></div>
+                        </div>
+                        <div class="flex justify-between items-center text-slate-400 font-sans text-[9px] font-bold">
+                            <span>Натисніть паузу або запустіть празький посібник</span>
+                            <span class="text-amber-300">Якість 1080p HD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-5 bg-slate-50 border-t border-slate-205/60 flex items-center justify-between font-sans">
+                <div>
+                    <h6 class="font-extrabold text-[#1e3a8a] text-sm" id="modal-lecture-title">Основи кінематики</h6>
+                    <p class="text-[11px] text-slate-404 mt-0.5" id="modal-lecture-about">Лектор: доц. Ковальчук П. А.</p>
+                </div>
+                <button onclick="triggerToast('Повний доступ до записів надається партнерам кафедри')" class="bg-[#1e3a8a] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-brand-800 transition-colors cursor-pointer">
+                    Завантажити конспект лекції
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Gallery Lightbox Modal -->
+    <div id="gallery-modal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="w-full max-w-3xl relative">
+            <button onclick="closeGallery()" class="absolute -top-12 right-0 text-white hover:text-slate-300 flex items-center gap-1.5 text-xs font-bold cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i> Закрити
+            </button>
+            <div class="aspect-[16/10] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 font-sans">
+                <img id="gallery-img" src="" alt="Fyziklani trip" class="w-full h-full object-cover select-none">
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5 text-white">
+                    <p id="gallery-counter" class="text-[10px] text-amber-300 uppercase font-black tracking-widest font-mono">Фото 1 з 3</p>
+                    <h4 id="gallery-title" class="font-bold text-sm tracking-tight mt-1">Опис фотографії</h4>
+                    <p id="gallery-description" class="text-xs text-slate-300 mt-1 font-medium leading-relaxed">Детальний опис подорожі учнів хабу.</p>
+                </div>
+            </div>
+            
+            <!-- Gallery navigation buttons -->
+            <button onclick="changeGallerySlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors cursor-pointer">
+                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+            <button onclick="changeGallerySlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors cursor-pointer">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal 3: Timeline Item Detail Modal -->
+    <div id="timeline-detail-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden font-sans">
+        <div class="bg-white rounded-3xl w-full max-w-lg p-6 shadow-2xl relative border border-slate-200">
+            <button onclick="closeTimelineDetail()" class="absolute top-4 right-4 text-slate-404 hover:text-slate-800 cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <span id="td-date" class="text-[10px] font-black uppercase text-[#1e3a8a] bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-md">15 вересня 2023</span>
+                    <span id="td-audience" class="text-[9px] font-black uppercase tracking-wider text-slate-500 font-mono">Для вчителів</span>
+                </div>
+                <h4 id="td-title" class="text-xl font-black text-slate-900 tracking-tight">Заголовок події</h4>
+                <div class="p-4 bg-slate-50 border border-slate-200/50 rounded-2xl">
+                    <p id="td-desc" class="text-xs text-slate-600 leading-relaxed font-semibold">Опис цієї чудової віхи нашої співпраці.</p>
+                </div>
+                <div class="flex justify-end gap-2.5 pt-2">
+                    <button onclick="closeTimelineDetail()" class="px-4 py-2 border border-slate-200 hover:border-slate-300 rounded-xl text-xs font-bold text-slate-600 transition-colors cursor-pointer">Закрити</button>
+                    <button onclick="triggerToast('Повну статтю розміщено на медіа-ресурсах кафедри')" class="px-4 py-2 bg-brand-900 hover:bg-brand-800 text-white rounded-xl text-xs font-bold transition-all cursor-pointer">Читати повний реліз</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Interactive Code Explorer / Exporter Modal -->
+    <div id="code-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl w-full max-w-4xl h-[90vh] flex flex-col shadow-2xl relative border border-slate-200 animate-zoom-in">
+            <div class="p-5 border-b border-slate-200 flex items-center justify-between font-sans">
+                <div>
+                    <h3 class="font-extrabold text-[#1e3a8a] text-base flex items-center gap-1.5">
+                        <i data-lucide="code" class="w-5 h-5 text-brand-900"></i> Інструмент експорту чистого коду (V4 Integration)
+                    </h3>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Клацніть кнопку копіювання, щоб забрати готовий код для заливки у вашу CMS WordPress або окремий файл.</p>
+                </div>
+                <button onclick="closeCodeExplorer()" class="text-slate-404 hover:text-slate-800 transition-all font-bold cursor-pointer">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <div class="flex-1 bg-slate-900 overflow-hidden relative flex flex-col font-mono text-[11px]">
+                <!-- Highlighted code display text block -->
+                <pre class="flex-1 overflow-auto p-6 text-emerald-400 tracking-tight leading-relaxed custom-scrollbar bg-[#0f172a] select-all"><code id="code-content-block">Завантаження коду...</code></pre>
+            </div>
+
+            <div class="p-5 border-t border-slate-200 flex items-center justify-between bg-slate-50 font-sans font-sans">
+                <div class="text-[10px] text-slate-404 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> ПОВНІСТЮ СТАТИЧНИЙ HTML / CSS ТА JS В ОДНОМУ ФАЙЛІ
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="closeCodeExplorer()" class="px-5 py-2.5 border border-slate-200 hover:border-slate-300 rounded-xl text-xs font-bold text-slate-600 bg-white transition-colors cursor-pointer">Скасувати</button>
+                    <button onclick="copyRawCode()" class="px-5 py-2.5 bg-brand-900 hover:bg-brand-800 text-white rounded-xl text-xs font-extrabold transition-all shadow-md shadow-brand-900/10 flex items-center gap-1.5 cursor-pointer">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Копіювати весь HTML у буфер</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================== VANILLA JAVASCRIPT SYSTEM ENGINE ==================== -->
+    <script>
+        // Init Lucide Icons variables representation
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            lazyLoadRawHTML();
+            selectPathway('students');
+        });
+
+        function selectPathway(pathwayId) {
+            const pathways = ['students', 'schoolers', 'teachers'];
+            
+            pathways.forEach(p => {
+                const card = document.getElementById(`pathway-card-${p}`);
+                const iconContainer = document.getElementById(`pathway-icon-container-${p}`);
+                const title = document.getElementById(`pathway-title-${p}`);
+                const desc = document.getElementById(`pathway-desc-${p}`);
+                const btnSpan = document.getElementById(`pathway-btn-span-${p}`);
+                
+                if (!card) return;
+                
+                if (p === pathwayId) {
+                    // Active styles (deep blue #1e3a8a background with white text and ring glowing shadow)
+                    card.className = "cursor-pointer rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group select-none bg-[#1e3a8a] text-white shadow-xl shadow-blue-900/10 scale-[1.02] ring-2 ring-blue-500/30";
+                    if (iconContainer) iconContainer.className = "w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-350 bg-white/15 text-white mb-4";
+                    if (title) title.className = "text-lg font-black tracking-tight text-white transition-colors duration-200";
+                    if (desc) desc.className = "text-xs leading-relaxed font-semibold text-white/90 transition-colors duration-200";
+                    if (btnSpan) btnSpan.className = "text-xs font-black inline-flex items-center gap-1 text-white";
+                } else {
+                    // Passive styles
+                    card.className = "cursor-pointer rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group select-none bg-white border border-slate-200 hover:border-slate-300 text-slate-850 hover:shadow-lg hover:scale-[1.01]";
+                    if (iconContainer) iconContainer.className = "w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-350 bg-slate-100 text-slate-700 mb-4";
+                    if (title) title.className = "text-lg font-black tracking-tight text-slate-900 transition-colors duration-200";
+                    if (desc) desc.className = "text-xs leading-relaxed font-semibold text-slate-500 transition-colors duration-200";
+                    if (btnSpan) btnSpan.className = "text-xs font-black inline-flex items-center gap-1 transition-colors duration-200 text-[#1e3a8a]";
+                }
+            });
+
+            const container = document.getElementById('pathway-content-container');
+            if (container) {
+                pathways.forEach(p => {
+                    const el = document.getElementById(`pathway-content-${p}`);
+                    if (el) {
+                        if (p === pathwayId) {
+                            el.classList.remove('hidden');
+                        } else {
+                            el.classList.add('hidden');
+                        }
+                    }
+                });
+
+                container.classList.remove('hidden');
+                
+                // Entrance animation
+                container.style.opacity = '0';
+                container.style.transform = 'translateY(15px)';
+                container.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+                
+                setTimeout(() => {
+                    container.style.opacity = '1';
+                    container.style.transform = 'translateY(0)';
+                }, 50);
+            }
+
+            // Re-render lucide icons inside dynamic container
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        // Toast feedback system
+        function triggerToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white border border-slate-800 px-5 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 pointer-events-auto transition-all duration-300 opacity-0 translate-y-3 max-w-sm text-xs font-extrabold shrink-0 border border-slate-750 font-sans';
+            
+            toast.innerHTML = `
+                <div class="w-4 h-4 rounded-full bg-brand-700 flex items-center justify-center text-[10px]">⚡</div>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+            
+            // Trigger animation
+            setTimeout(() => {
+                toast.classList.remove('opacity-0', 'translate-y-3');
+                toast.classList.add('opacity-100', 'translate-y-0');
+            }, 10);
+
+            // Auto-hide
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-3');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Clip data copy
+        function copyToClipboard(text, successMessage) {
+            navigator.clipboard.writeText(text).then(() => {
+                triggerToast(successMessage);
+            }).catch(err => {
+                triggerToast("Помилка копіювання: " + err);
+            });
+        }
+
+        // Active state togglers for Lecture Cycle tabs
+        function filterLectures(audience) {
+            const cards = document.querySelectorAll('.lecture-card');
+            const tabs = ['all', 'students', 'teachers'];
+            
+            // Reset filters tabs active classes
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`lecture-tab-${tab}`);
+                if (tab === audience) {
+                    btn.className = "px-3.5 py-1.5 rounded-lg transition-all bg-white text-slate-900 shadow-xs cursor-pointer";
+                } else {
+                    btn.className = "px-3.5 py-1.5 rounded-lg transition-all text-slate-500 hover:text-slate-900 cursor-pointer";
+                }
+            });
+
+            // Filter
+            cards.forEach(card => {
+                const cardAudience = card.getAttribute('data-audience');
+                if (audience === 'all' || cardAudience === audience) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            triggerToast(`Показано лекції: ${audience === 'all' ? 'Всі' : audience === 'students' ? 'Для учнів' : 'Для вчителів'}`);
+        }
+
+        // Interactive simulation slide toggle panel representation
+        function toggleSimulations() {
+            const panel = document.getElementById('simulations-panel');
+            const arrow = document.getElementById('sim-arrow');
+            if (panel.classList.contains('hidden')) {
+                panel.classList.remove('hidden');
+                arrow.style.transform = 'rotate(180deg)';
+                triggerToast('Перелік ресурсів відкрито');
+            } else {
+                panel.classList.add('hidden');
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Unified Interactive Timelines filter triggers
+        function filterTimeline(audience) {
+            const items = document.querySelectorAll('.timeline-item');
+            const targets = ['all', 'students', 'teachers'];
+
+            targets.forEach(t => {
+                const btn = document.getElementById(`timeline-filter-${t}`);
+                if (t === audience) {
+                    btn.className = "px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all bg-white text-slate-900 shadow-3xs cursor-pointer";
+                } else {
+                    btn.className = "px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all text-slate-505 hover:text-slate-900 cursor-pointer";
+                }
+            });
+
+            // Iterate items with simple opacity fade representation
+            items.forEach(item => {
+                const aud = item.getAttribute('data-audience');
+                if (audience === 'all' || aud === audience) {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                } else {
+                    item.style.display = 'none';
+                    item.style.opacity = '0';
+                }
+            });
+
+            triggerToast(`Таймлайн відфільтровано: ${audience === 'all' ? 'всі події' : audience === 'students' ? 'для школярів' : 'для викладачів'}`);
+        }
+
+        // Live filtration of sidebar publications list in client-side using Vanilla JS
+        function filterSidebarNews(query) {
+            const newsItems = document.querySelectorAll('.news-item');
+            const resetBtn = document.getElementById('reset-search-btn');
+            const lowerQuery = query.toLowerCase().trim();
+            let foundCount = 0;
+
+            if (lowerQuery !== '') {
+                resetBtn.classList.remove('hidden');
+            } else {
+                resetBtn.classList.add('hidden');
+            }
+
+            newsItems.forEach(item => {
+                const title = item.querySelector('.news-title').textContent.toLowerCase();
+                const excerpt = item.querySelector('.news-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(lowerQuery) || excerpt.includes(lowerQuery)) {
+                    item.style.display = 'flex';
+                    foundCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Manage empty search state visualization inside sidebar parent elements
+            let emptyMsg = document.getElementById('news-empty-msg');
+            if (foundCount === 0) {
+                if (!emptyMsg) {
+                    emptyMsg = document.createElement('div');
+                    emptyMsg.id = 'news-empty-msg';
+                    emptyMsg.className = 'text-center py-6 text-xs text-slate-400 font-bold';
+                    emptyMsg.textContent = 'Публікацій з таким записом не знайдено.';
+                    document.getElementById('sidebar-news-list').appendChild(emptyMsg);
+                }
+            } else {
+                if (emptyMsg) {
+                    emptyMsg.remove();
+                }
+            }
+        }
+
+        // Click tags to quickly set search terms
+        function setSidebarSearchKeyword(keyword) {
+            const input = document.getElementById('sidebar-search-input');
+            input.value = keyword;
+            filterSidebarNews(keyword);
+            triggerToast(`Відфільтровано стрічку новин за тегом: ${keyword}`);
+        }
+
+        function resetSidebarSearch() {
+            const input = document.getElementById('sidebar-search-input');
+            input.value = '';
+            filterSidebarNews('');
+            triggerToast('Пошуковий фільтр скинуто!');
+        }
+
+        function showNewsAlert(title) {
+            triggerToast(`Перехід до статті: "${title}"`);
+        }
+
+        // Simulated downloads modal triggers
+        function triggerDownload(fileName) {
+            triggerToast(`Хмарне завантаження активовано: ${fileName}`);
+        }
+
+        // Modals Management functions
+
+        // Video Player Modal Management
+        let mockProgressInterval;
+        let isPlaying = true;
+        
+        function playLecture(title, speaker, url) {
+            document.getElementById('video-lecture-name').textContent = title;
+            document.getElementById('video-lecture-speaker').textContent = speaker;
+            document.getElementById('modal-lecture-title').textContent = title;
+            document.getElementById('modal-lecture-about').textContent = `Викладач курсу: ${speaker}`;
+            
+            // Open modal
+            document.getElementById('video-modal').classList.remove('hidden');
+            
+            // Reset values
+            isPlaying = true;
+            document.getElementById('play-btn-icon').setAttribute('data-lucide', 'pause');
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            let percentage = 0;
+            const progress = document.getElementById('video-progress');
+            const timer = document.getElementById('video-timer');
+            
+            clearInterval(mockProgressInterval);
+            mockProgressInterval = setInterval(() => {
+                if (isPlaying) {
+                    percentage += 1;
+                    if (percentage > 100) percentage = 0;
+                    progress.style.width = percentage + '%';
+                    
+                    const sec = Math.floor((percentage / 100) * 2700);
+                    const minStr = Math.floor(sec / 60).toString().padStart(2, '0');
+                    const secStr = (sec % 60).toString().padStart(2, '0');
+                    timer.textContent = `${minStr}:${secStr} / 45:00`;
+                }
+            }, 1000);
+            
+            triggerToast(`Запуск трансляції: ${title}`);
+        }
+
+        function togglePlayerPlayState() {
+            isPlaying = !isPlaying;
+            const icon = document.getElementById('play-btn-icon');
+            if (isPlaying) {
+                icon.setAttribute('data-lucide', 'pause');
+                triggerToast('Продовження відтворення лекції');
+            } else {
+                icon.setAttribute('data-lucide', 'play');
+                triggerToast('Трансляцію призупинено');
+            }
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function closeVideo() {
+            document.getElementById('video-modal').classList.add('hidden');
+            clearInterval(mockProgressInterval);
+        }
+
+        // Excursion trip Photo Gallery lightbox management
+        const gallerySlides = [
+            {
+                url: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800',
+                title: 'Спільна командна підготовка в лабораторіях',
+                desc: 'Українська збірна разом із чеськими студентами та партнерами проєкту за спільною роботою над експериментальними логічними завданнями.'
+            },
+            {
+                url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800',
+                title: 'Підсумкові вебінари у Празі',
+                desc: 'Зустріч учасників за участі координаторів змагань з країн V4 (Чехія, Словаччина), обмін сертифікатами та презентація посібників.'
+            },
+             {
+                url: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800',
+                title: 'Практичні заняття на кафедрі ЛНУ',
+                desc: 'Використання наданих стендових зразків, датчиків струму, напівпровідникових вимірювальних систем вихованцями Хабу.'
+            }
+        ];
+        
+        let activeGalleryIndex = 0;
+
+        function openGallery(idx) {
+            activeGalleryIndex = idx;
+            updateGalleryModal();
+            document.getElementById('gallery-modal').classList.remove('hidden');
+            triggerToast('Галерея подорожі активована');
+        }
+
+        function closeGallery() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+        }
+
+        function changeGallerySlide(offset) {
+            activeGalleryIndex = (activeGalleryIndex + offset + gallerySlides.length) % gallerySlides.length;
+            updateGalleryModal();
+        }
+
+        function updateGalleryModal() {
+            const slide = gallerySlides[activeGalleryIndex];
+            document.getElementById('gallery-img').src = slide.url;
+            document.getElementById('gallery-title').textContent = slide.title;
+            document.getElementById('gallery-description').textContent = slide.desc;
+            document.getElementById('gallery-counter').textContent = `Фото ${activeGalleryIndex + 1} з ${gallerySlides.length}`;
+        }
+
+        // Timeline item read-out modal triggers
+        function openTimelineDetail(title, date, desc, audience) {
+            document.getElementById('td-title').textContent = title;
+            document.getElementById('td-date').textContent = date;
+            document.getElementById('td-desc').textContent = desc;
+            document.getElementById('td-audience').textContent = `Аудиторія: ${audience}`;
+            
+            document.getElementById('timeline-detail-modal').classList.remove('hidden');
+        }
+
+        function closeTimelineDetail() {
+            document.getElementById('timeline-detail-modal').classList.add('hidden');
+        }
+
+        // Code exporter management (Fetch real static text so the user gets accurate copy strings)
+        let pageSourceCode = '';
+
+        function lazyLoadRawHTML() {
+            fetch(window.location.href)
+                .then(res => res.text())
+                .then(code => {
+                    pageSourceCode = code;
+                })
+                .catch(err => {
+                    console.error("Не вдалося завантажити вихідний код автоматично: ", err);
+                });
+        }
+
+        function openCodeExplorer() {
+            const block = document.getElementById('code-content-block');
+            if (pageSourceCode !== '') {
+                // Escape code characters properly before display
+                block.textContent = pageSourceCode;
+            } else {
+                block.textContent = document.documentElement.outerHTML;
+            }
+            document.getElementById('code-modal').classList.remove('hidden');
+            triggerToast('Відкрито експортний контейнер коду');
+        }
+
+        function closeCodeExplorer() {
+            document.getElementById('code-modal').classList.add('hidden');
+        }
+
+        function copyRawCode() {
+            const blockText = document.getElementById('code-content-block').textContent;
+            copyToClipboard(blockText, "Повний HTML вихідний код успішно скопійовано! Ви можете вставити його на сайт.");
+            closeCodeExplorer();
+        }
+    </script>
+</body>
+</html>

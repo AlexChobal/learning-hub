@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 1600.02 250.00"
+   version="1.1"
+   sodipodi:docname="Fyziklani_logo.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.1043612"
+     inkscape:cx="718.51493"
+     inkscape:cy="130.84487"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g
+     id="g15"
+     transform="translate(0,-196)">
+    <path
+       d="m 356.14649,258.64367 h 48.84 v -28.82 h -84.48 v 146.74 h 35.64 v -59.18 h 48.84 v -28.82 h -48.84 z"
+       id="path1"
+       style="fill:#ffffff;stroke-width:0.22" />
+    <path
+       d="m 464.82649,328.16367 -17.6,-53.46 h -35.42 l 35.42,99.88 -18.26,47.3 h 35.86 l 55.66,-147.18 h -35.2 z"
+       id="path2"
+       style="fill:#ffffff;stroke-width:0.22" />
+    <path
+       d="m 573.50648,348.84367 37.84,-74.14 h -86.24 v 27.72 h 34.76 l -37.84,74.14 h 87.34 v -27.72 z"
+       id="path3"
+       style="fill:#ffffff;stroke-width:0.22" />
+    <path
+       d="m 660.62648,274.70367 h -33.44 v 101.86 h 33.44 z m -16.5,-47.52 c -10.56,0 -18.04,7.48 -18.04,17.82 0,10.34 7.48,17.82 17.82,17.82 10.12,0 17.82,-7.48 17.82,-17.6 0,-10.56 -7.26,-18.04 -17.6,-18.04 z"
+       id="path4"
+       style="fill:#ffffff;stroke-width:0.22" />
+    <path
+       d="m 718.92649,335.86367 22.66,40.7 h 37.84 l -29.7,-53.46 29.7,-48.4 h -37.84 l -22.66,36.3 v -81.18 h -33.44 v 146.74 h 33.44 z"
+       id="path5"
+       style="fill:#ffffff;stroke-width:0.22" />
+    <path
+       d="m 826.06649,376.56367 v -146.74 h -33.44 v 146.74 z"
+       id="path6"
+       style="fill:#ffffff;stroke-width:0.22" />
+    <path
+       d="m 929.24648,285.70367 c -9.9,-10.78 -18.7,-14.96 -31.68,-14.96 -30.58,0 -52.8,23.76 -52.8,56.32 0,31.24 20.9,53.46 49.94,53.46 14.52,0 25.3,-4.84 34.54,-15.4 v 11.44 h 33.44 v -101.86 h -33.44 z m -24.42,12.76 c 14.52,0 24.86,11.22 24.86,27.5 0,15.4 -11.22,28.16 -25.08,28.16 -13.64,0 -24.2,-12.1 -24.2,-27.72 0,-16.28 10.12,-27.94 24.42,-27.94 z"
+       id="path7"
+       style="fill:#ffffff;stroke-width:0.22" />
+    <path
+       d="m 987.76649,274.70367 v 101.86 h 33.44001 v -61.82 c 0,-9.9 5.5,-16.28 14.08,-16.28 8.58,0 13.86,5.94 13.86,15.84 v 62.26 h 33.44 v -62.48 c 0,-18.04 -2.42,-26.4 -9.24,-33.44 -6.38,-6.16 -16.06,-9.9 -26.18,-9.9 -12.32,0 -19.36,4.18 -25.96,15.4 v -11.44 z"
+       id="path8"
+       style="fill:#ffffff;stroke-width:0.22" />
+    <path
+       d="m 1140.4465,274.70367 h -33.44 v 101.86 h 33.44 z m -16.5,-47.52 c -10.56,0 -18.04,7.48 -18.04,17.82 0,10.34 7.48,17.82 17.82,17.82 10.12,0 17.82,-7.48 17.82,-17.6 0,-10.56 -7.26,-18.04 -17.6,-18.04 z"
+       id="path9"
+       style="fill:#ffffff;stroke-width:0.22" />
+  </g>
+  <g
+     id="g14">
+    <polygon
+       class="cls-1"
+       points="118.78 170.74 126.42 167.3 122.23 162.18 118.78 170.74"
+       id="polygon13" />
+    <polygon
+       class="cls-1"
+       points="117.16 149.64 201.23 57.53 93.86 142.38 109.06 169.02 117.16 149.64"
+       id="polygon14" />
+    <path
+       class="cls-1"
+       d="M0,0V250H250V0H0ZM161.78,212.06l-29.03-37.03-25.45,11.53-22.46-40.51-55.94,.63c1.09-.65,192.21-108.75,192.21-108.75l-59.32,174.12Z"
+       id="path14" />
+  </g>
+</svg>
